@@ -13,7 +13,7 @@ export function HeroSection() {
     <section className="min-h-screen flex items-center justify-center relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-          Hi, I'm <span className="text-primary">John Doe</span>
+          Hi, I'm <span className="text-primary">Borhan Rabbani</span>
         </h1>
         <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto">
           Full Stack Developer passionate about creating amazing web experiences
