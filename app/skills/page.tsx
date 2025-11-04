@@ -12,7 +12,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Cloud, Code, Server, Smartphone, Zap } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-export function SkillsSection() {
+export default function SkillsPage() {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -103,7 +103,7 @@ export function SkillsSection() {
   );
 
   return (
-    <section id="skills" className="pt-10 relative" ref={sectionRef}>
+    <section id="skills" className="py-10 relative" ref={sectionRef}>
       <div
         className="absolute inset-0 z-0 opacity-10"
         style={{ backgroundImage: "url('/hero.svg')" }}

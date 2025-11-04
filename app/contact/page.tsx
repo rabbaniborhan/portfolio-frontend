@@ -15,7 +15,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { CheckCircle, Clock, Mail, MapPin, Phone, Send } from "lucide-react";
 import { useState } from "react";
 
-export function ContactSection() {
+export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",

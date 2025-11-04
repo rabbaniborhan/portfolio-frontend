@@ -48,7 +48,7 @@ export default function EducationAndCertifications() {
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
       viewport={{ once: true }}
-      className="space-y-8"
+      className="space-y-6"
     >
       {" "}
       <div className="flex items-center gap-3">

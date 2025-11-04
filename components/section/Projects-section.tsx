@@ -91,7 +91,7 @@ export function ProjectsSection() {
       : projects.filter((project) => project.category === activeCategory);
 
   return (
-    <section id="projects" className="py-24">
+    <section id="projects" className="pt-20 pb-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading Animation */}
         <motion.div

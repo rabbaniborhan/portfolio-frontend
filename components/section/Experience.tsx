@@ -64,7 +64,7 @@ export default function Experience() {
       whileInView={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.7, ease: "easeOut" }}
       viewport={{ once: true }}
-      className="space-y-8"
+      className="space-y-6"
     >
       <div className="flex items-center gap-3">
         {" "}

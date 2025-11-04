@@ -1,3 +1,4 @@
+import { Footer } from "@/components/layout/footer";
 import { Navbar } from "@/components/layout/navbar";
 import { ThemeProvider } from "@/components/Theme-provider";
 import type { Metadata } from "next";
@@ -19,11 +20,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <div className="flex items-center justify-center">
+        <div className="flex flex-col justify-center">
           <ThemeProvider>
             <Navbar />
             <main className=" ">{children}</main>
-            {/* <Footer /> */}
+            <Footer />
           </ThemeProvider>
         </div>
       </body>

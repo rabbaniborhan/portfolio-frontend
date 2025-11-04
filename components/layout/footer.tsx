@@ -1,11 +1,11 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
 import {
   ArrowUp,
   Code,
   Coffee,
-  ExternalLink,
   Github,
   Heart,
   Instagram,
@@ -23,11 +23,11 @@ export function Footer() {
 
   const quickLinks = [
     { name: "Home", href: "/" },
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
+    { name: "About", href: "/about" },
+    { name: "Skills", href: "/skills" },
+    { name: "Projects", href: "/projects" },
     { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "#contact" },
+    { name: "Contact", href: "/contact" },
   ];
 
   const services = [
@@ -73,16 +73,8 @@ export function Footer() {
   ];
 
   const contactInfo = [
-    {
-      icon: Mail,
-      text: "hello@johndoe.dev",
-      href: "mailto:hello@johndoe.dev",
-    },
-    {
-      icon: Phone,
-      text: "+1 (555) 123-4567",
-      href: "tel:+15551234567",
-    },
+    { icon: Mail, text: "hello@johndoe.dev", href: "mailto:hello@johndoe.dev" },
+    { icon: Phone, text: "+1 (555) 123-4567", href: "tel:+15551234567" },
     {
       icon: MapPin,
       text: "San Francisco, CA",
@@ -94,13 +86,26 @@ export function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (i: number) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.1, duration: 0.5 },
+    }),
+  };
+
   return (
-    <footer className="bg-gradient-to-b from-background to-muted/30 border-t">
-      {/* Main Footer Content */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12">
+    <footer className="bg-gradient-to-b from-background to-muted/30 border-t relative">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
           {/* Brand Column */}
-          <div className="lg:col-span-1">
+          <motion.div custom={0} variants={itemVariants}>
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
                 <Code className="h-6 w-6 text-white" />
@@ -118,33 +123,28 @@ export function Footer() {
             </p>
             <div className="flex space-x-3">
               {socialLinks.map((social, index) => (
-                <Button
+                <motion.a
                   key={index}
-                  variant="outline"
-                  size="icon"
-                  className="rounded-full"
-                  asChild
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`rounded-full transition-colors ${social.color}`}
+                  custom={index}
+                  variants={itemVariants}
+                  whileHover={{ scale: 1.2 }}
                 >
-                  <a
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={social.color}
-                  >
-                    <social.icon className="h-4 w-4" />
-                    <span className="sr-only">{social.name}</span>
-                  </a>
-                </Button>
+                  <social.icon className="h-4 w-4" />
+                </motion.a>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div>
+          <motion.div custom={1} variants={itemVariants}>
             <h4 className="font-semibold text-lg mb-4">Quick Links</h4>
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
-                <li key={index}>
+                <motion.li key={index} custom={index} variants={itemVariants}>
                   <Link
                     href={link.href}
                     className="text-muted-foreground hover:text-primary transition-colors flex items-center group"
@@ -152,63 +152,58 @@ export function Footer() {
                     <span className="w-2 h-2 bg-primary rounded-full opacity-0 group-hover:opacity-100 transition-opacity mr-3" />
                     {link.name}
                   </Link>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Services */}
-          <div>
+          <motion.div custom={2} variants={itemVariants}>
             <h4 className="font-semibold text-lg mb-4">Services</h4>
             <ul className="space-y-3">
               {services.map((service, index) => (
-                <li key={index}>
+                <motion.li key={index} custom={index} variants={itemVariants}>
                   <div className="text-muted-foreground hover:text-primary transition-colors flex items-center group">
                     <span className="w-2 h-2 bg-blue-500 rounded-full opacity-0 group-hover:opacity-100 transition-opacity mr-3" />
                     {service}
                   </div>
-                </li>
+                </motion.li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
           {/* Contact Info */}
-          <div>
+          <motion.div custom={3} variants={itemVariants}>
             <h4 className="font-semibold text-lg mb-4">Get In Touch</h4>
             <div className="space-y-4">
               {contactInfo.map((contact, index) => (
-                <a
+                <motion.a
                   key={index}
                   href={contact.href}
                   className="flex items-center space-x-3 text-muted-foreground hover:text-primary transition-colors group"
+                  custom={index}
+                  variants={itemVariants}
+                  whileHover={{ x: 5 }}
                 >
                   <div className="p-2 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
                     <contact.icon className="h-4 w-4" />
                   </div>
                   <span className="text-sm">{contact.text}</span>
-                </a>
+                </motion.a>
               ))}
             </div>
-
-            {/* Newsletter Signup */}
-            <div className="mt-6 p-4 bg-muted/50 rounded-lg">
-              <p className="text-sm font-medium mb-2">Stay Updated</p>
-              <p className="text-xs text-muted-foreground mb-3">
-                Get the latest articles and updates
-              </p>
-              <Button size="sm" className="w-full" asChild>
-                <a href="#contact">
-                  Subscribe
-                  <ExternalLink className="h-3 w-3 ml-2" />
-                </a>
-              </Button>
-            </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t bg-muted/20">
+      <motion.div
+        className="border-t bg-muted/20"
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+      >
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             {/* Copyright */}
@@ -254,16 +249,23 @@ export function Footer() {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Floating Action Button */}
-      <Button
-        onClick={scrollToTop}
-        size="icon"
-        className="fixed bottom-6 right-6 rounded-full shadow-lg z-50 h-12 w-12"
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ type: "spring", stiffness: 120, damping: 12 }}
+        className="fixed bottom-6 right-6 z-50"
       >
-        <ArrowUp className="h-5 w-5" />
-      </Button>
+        <Button
+          onClick={scrollToTop}
+          size="icon"
+          className="rounded-full shadow-lg h-12 w-12"
+        >
+          <ArrowUp className="h-5 w-5" />
+        </Button>
+      </motion.div>
     </footer>
   );
 }

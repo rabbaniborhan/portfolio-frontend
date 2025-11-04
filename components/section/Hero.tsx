@@ -12,7 +12,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-10 lg:px-16 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col gap-4 md:flex-row items-center justify-center px-6 md:px-10 lg:px-16 overflow-hidden">
       {/* Background Image */}
       <div
         className="absolute inset-0  backdrop-opacity-100 "

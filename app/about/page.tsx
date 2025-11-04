@@ -1,15 +1,15 @@
 "use client";
 
+import AboutMe from "@/components/section/AboutMe";
+import EducationAndCertifications from "@/components/section/EducationAndCertification";
+import Experience from "@/components/section/Experience";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import { Award } from "lucide-react";
-import AboutMe from "./AboutMe";
-import EducationAndCertifications from "./EducationAndCertification";
-import Experience from "./Experience";
 
-export default function AboutSection() {
+export default function AboutPage() {
   return (
-    <section id="about" className="pt-20">
+    <section id="about" className="py-20">
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
