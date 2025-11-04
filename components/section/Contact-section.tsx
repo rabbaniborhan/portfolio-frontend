@@ -11,17 +11,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import {
-  CheckCircle,
-  Clock,
-  Github,
-  Linkedin,
-  Mail,
-  MapPin,
-  Phone,
-  Send,
-  Twitter,
-} from "lucide-react";
+import { CheckCircle, Clock, Mail, MapPin, Phone, Send } from "lucide-react";
 import { useState } from "react";
 
 export function ContactSection() {
@@ -81,27 +71,6 @@ export function ContactSection() {
     },
   ];
 
-  const socialLinks = [
-    {
-      icon: Github,
-      name: "GitHub",
-      url: "https://github.com/johndoe",
-      username: "@johndoe",
-    },
-    {
-      icon: Linkedin,
-      name: "LinkedIn",
-      url: "https://linkedin.com/in/johndoe",
-      username: "@johndoe",
-    },
-    {
-      icon: Twitter,
-      name: "Twitter",
-      url: "https://twitter.com/johndoe",
-      username: "@johndoe",
-    },
-  ];
-
   return (
     <section id="contact" className="py-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -145,42 +114,6 @@ export function ContactSection() {
                 ))}
               </CardContent>
             </Card>
-
-            {/* Social Links
-            <Card>
-              <CardHeader>
-                <CardTitle>Follow Me</CardTitle>
-                <CardDescription>
-                  Connect with me on social media
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between p-3 rounded-lg hover:bg-muted/50 transition-colors group"
-                  >
-                    <div className="flex items-center space-x-3">
-                      <div className="p-2 bg-muted rounded-lg">
-                        <social.icon className="h-4 w-4" />
-                      </div>
-                      <div>
-                        <p className="font-medium text-sm">{social.name}</p>
-                        <p className="text-muted-foreground text-sm">
-                          {social.username}
-                        </p>
-                      </div>
-                    </div>
-                    <div className="opacity-0 group-hover:opacity-100 transition-opacity">
-                      <MessageCircle className="h-4 w-4 text-muted-foreground" />
-                    </div>
-                  </a>
-                ))}
-              </CardContent>
-            </Card> */}
 
             {/* Availability */}
             <Card>
@@ -310,29 +243,6 @@ export function ContactSection() {
               </CardContent>
             </Card>
           </div>
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <Card className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 border-none max-w-2xl mx-auto">
-            <CardContent className="py-8">
-              <h3 className="text-2xl font-bold mb-2">Let's Work Together</h3>
-              <p className="text-muted-foreground mb-6">
-                Ready to bring your ideas to life? I'm just one message away.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" asChild>
-                  <a href="mailto:hello@johndoe.dev">
-                    <Mail className="h-4 w-4 mr-2" />
-                    Email Me Directly
-                  </a>
-                </Button>
-                <Button variant="outline" size="lg" asChild>
-                  <a href="#projects">View My Work</a>
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
         </div>
       </div>
     </section>

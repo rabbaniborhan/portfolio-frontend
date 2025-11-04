@@ -1,12 +1,12 @@
-import { HeroSection } from "@/components/section/Hero";
+import { ProjectsSection } from "@/components/section/Projects-section";
 
 export default function Home() {
   return (
     <>
-      <HeroSection />
-      {/* <ProjectsSection />
-      <SkillsSection />
-      <AboutSection />
+      {/* <HeroSection /> */}
+      {/* <AboutSection /> */}
+      <ProjectsSection />
+      {/* <SkillsSection />
       <BlogSection />
       <ContactSection /> */}
     </>

@@ -37,7 +37,7 @@ export function HeroSection() {
           </motion.p>
 
           <motion.h1
-            className="text-3xl md:text-6xl font-bold mt-10 leading-tight"
+            className="text-3xl md:text-5xl lg:text-6xl font-bold mt-10 leading-tight"
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
@@ -121,7 +121,7 @@ export function HeroSection() {
       </div>
 
       {/* Scroll Down Icon */}
-      <div className="absolute bottom-8 left-1/2  transform -translate-x-1/2 z-10">
+      <div className="absolute bottom-8 md:left-2/3 lg:left-1/2 hidden md:flex  transform -translate-x-1/2 z-10">
         <Button
           variant="ghost"
           size="icon"
