@@ -8,15 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Cloud,
-  Code,
-  Cpu,
-  Database,
-  Server,
-  Smartphone,
-  Zap,
-} from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Cloud, Code, Server, Smartphone, Zap } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 export function SkillsSection() {
@@ -85,45 +78,47 @@ export function SkillsSection() {
       { threshold: 0.3 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+    if (sectionRef.current) observer.observe(sectionRef.current);
 
     return () => observer.disconnect();
   }, []);
 
   const ProgressBar = ({
     level,
-    color,
     bgColor,
     delay = 0,
   }: {
     level: number;
-    color: string;
     bgColor: string;
     delay?: number;
   }) => (
-    <div className="w-full bg-muted rounded-full h-3 overflow-hidden">
-      <div
-        className={`h-3 rounded-full ${bgColor} transition-all duration-1000 ease-out`}
-        style={{
-          width: isVisible ? `${level}%` : "0%",
-          transitionDelay: `${delay}ms`,
-        }}
-      />
-    </div>
+    <motion.div
+      className="w-full bg-muted rounded-full h-3 overflow-hidden"
+      initial={{ width: 0 }}
+      animate={{ width: isVisible ? `${level}%` : 0 }}
+      transition={{ duration: 1, delay: delay / 1000 }}
+    >
+      <div className={`h-3 rounded-full ${bgColor}`} />
+    </motion.div>
   );
 
   return (
-    <section
-      id="skills"
-      className="py-20 bg-gradient-to-br from-blue-50/50 to-purple-50/50 dark:from-blue-950/20 dark:to-purple-950/20"
-      ref={sectionRef}
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-20 relative" ref={sectionRef}>
+      <div
+        className="absolute inset-0 z-0 opacity-10"
+        style={{ backgroundImage: "url('/hero.svg')" }}
+      />
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <Badge variant="secondary" className="mb-4">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <Badge variant="secondary" className="mb-4 inline-flex items-center">
             <Zap className="h-3 w-3 mr-1" />
             Technical Skills
           </Badge>
@@ -134,54 +129,70 @@ export function SkillsSection() {
             Here's a comprehensive overview of my technical skills and
             proficiency levels across different technologies.
           </p>
-        </div>
+        </motion.div>
 
         {/* Skills Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {skills.map((category, categoryIndex) => (
-            <Card
-              key={category.category}
-              className="group hover:shadow-lg transition-all duration-300"
-            >
-              <CardHeader className="pb-4">
-                <div className="flex items-center space-x-3">
-                  <div className={`p-3 rounded-xl ${category.bgColor}/10`}>
-                    <category.icon className={`h-6 w-6 ${category.color}`} />
-                  </div>
-                  <div>
-                    <CardTitle className="text-xl">
-                      {category.category}
-                    </CardTitle>
-                    <CardDescription>
-                      {category.skills.length} skills
-                    </CardDescription>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent className="space-y-6">
-                {category.skills.map((skill, skillIndex) => (
-                  <div key={skill.name} className="space-y-3">
-                    <div className="flex justify-between items-center">
-                      <span className="font-medium text-sm">{skill.name}</span>
-                      <span className="text-muted-foreground text-sm">
-                        {skill.level}%
-                      </span>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <AnimatePresence>
+            {skills.map((category, categoryIndex) => (
+              <motion.div
+                key={category.category}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: categoryIndex * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <Card className="group hover:shadow-lg transition-all duration-300">
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center space-x-3">
+                      <div className={`p-3 rounded-xl ${category.bgColor}/10`}>
+                        <category.icon
+                          className={`h-6 w-6 ${category.color}`}
+                        />
+                      </div>
+                      <div>
+                        <CardTitle className="text-xl">
+                          {category.category}
+                        </CardTitle>
+                        <CardDescription>
+                          {category.skills.length} skills
+                        </CardDescription>
+                      </div>
                     </div>
-                    <ProgressBar
-                      level={skill.level}
-                      color={category.color}
-                      bgColor={category.bgColor}
-                      delay={categoryIndex * 100 + skillIndex * 50}
-                    />
-                  </div>
-                ))}
-              </CardContent>
-            </Card>
-          ))}
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    {category.skills.map((skill, skillIndex) => (
+                      <div key={skill.name} className="space-y-3">
+                        <div className="flex justify-between items-center">
+                          <span className="font-medium text-sm">
+                            {skill.name}
+                          </span>
+                          <span className="text-muted-foreground text-sm">
+                            {skill.level}%
+                          </span>
+                        </div>
+                        <ProgressBar
+                          level={skill.level}
+                          bgColor={category.bgColor}
+                          delay={categoryIndex * 100 + skillIndex * 50}
+                        />
+                      </div>
+                    ))}
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
 
         {/* Additional Skills */}
-        <div className="mt-12">
+        <motion.div
+          className="mt-12"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          viewport={{ once: true }}
+        >
           <Card>
             <CardHeader className="text-center">
               <CardTitle>Additional Technologies</CardTitle>
@@ -212,58 +223,25 @@ export function SkillsSection() {
                   "VS Code",
                   "Postman",
                 ].map((tech, index) => (
-                  <Badge
+                  <motion.div
                     key={tech}
-                    variant="secondary"
-                    className="px-3 py-2 text-sm hover:scale-105 transition-transform cursor-default"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4, delay: index * 0.05 }}
+                    viewport={{ once: true }}
                   >
-                    {tech}
-                  </Badge>
+                    <Badge
+                      variant="secondary"
+                      className="px-3 py-2 text-sm cursor-default"
+                    >
+                      {tech}
+                    </Badge>
+                  </motion.div>
                 ))}
               </div>
             </CardContent>
           </Card>
-        </div>
-
-        {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
-          <Card className="text-center">
-            <CardContent className="pt-6">
-              <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Cpu className="h-6 w-6 text-blue-600 dark:text-blue-400" />
-              </div>
-              <p className="text-2xl font-bold">15+</p>
-              <p className="text-sm text-muted-foreground">Technologies</p>
-            </CardContent>
-          </Card>
-          <Card className="text-center">
-            <CardContent className="pt-6">
-              <div className="w-12 h-12 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Code className="h-6 w-6 text-green-600 dark:text-green-400" />
-              </div>
-              <p className="text-2xl font-bold">50+</p>
-              <p className="text-sm text-muted-foreground">Projects</p>
-            </CardContent>
-          </Card>
-          <Card className="text-center">
-            <CardContent className="pt-6">
-              <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Database className="h-6 w-6 text-purple-600 dark:text-purple-400" />
-              </div>
-              <p className="text-2xl font-bold">3+</p>
-              <p className="text-sm text-muted-foreground">Years Exp</p>
-            </CardContent>
-          </Card>
-          <Card className="text-center">
-            <CardContent className="pt-6">
-              <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900 rounded-full flex items-center justify-center mx-auto mb-3">
-                <Cloud className="h-6 w-6 text-orange-600 dark:text-orange-400" />
-              </div>
-              <p className="text-2xl font-bold">25+</p>
-              <p className="text-sm text-muted-foreground">Clients</p>
-            </CardContent>
-          </Card>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
