@@ -1,4 +1,4 @@
-import { BlogSection } from "@/components/section/Blog-section";
+import { ContactSection } from "@/components/section/Contact-section";
 
 export default function Home() {
   return (
@@ -7,8 +7,8 @@ export default function Home() {
       {/* <AboutSection /> */}
       {/* <ProjectsSection /> */}
       {/* <SkillsSection /> */}
-      <BlogSection />
-      {/* <ContactSection /> */}
+      {/* <BlogSection /> */}
+      <ContactSection />
     </>
   );
 }
