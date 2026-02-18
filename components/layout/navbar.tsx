@@ -4,6 +4,7 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { cn } from "@/lib/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import { MenuIcon, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -27,9 +28,23 @@ export function Navbar() {
     <nav className="fixed top-0 w-full bg-background/80 backdrop-blur-md z-50 border-b">
       <div className="container mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          {/* Logo */}
-          <Link href="/" className="text-2xl font-bold">
-            Portfolio
+          <Link href="/" className="md:flex hidden items-center">
+            <Image
+              src="/logo.png"
+              alt="Portfolio Logo"
+              width={130}
+              height={130}
+              priority
+            />
+          </Link>
+          <Link href="/" className="flex md:hidden  items-center">
+            <Image
+              src="/logo2.png"
+              alt="Portfolio Logo"
+              width={60}
+              height={60}
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -42,7 +57,7 @@ export function Navbar() {
                   "text-sm font-medium   transition-colors hover:text-primary",
                   pathname === item.href
                     ? "text-primary"
-                    : "text-muted-foreground"
+                    : "text-muted-foreground",
                 )}
               >
                 {item.name}

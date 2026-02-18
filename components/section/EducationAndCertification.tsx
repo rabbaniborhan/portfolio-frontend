@@ -92,7 +92,8 @@ export default function EducationAndCertifications() {
                     {" "}
                     <div className="flex items-center gap-2">
                       {" "}
-                      <Calendar className="h-4 w-4" /> <span>{edu.year}</span>{" "}
+                      <Calendar className="h-4 w-4" />{" "}
+                      <span>{edu.year}</span>{" "}
                     </div>{" "}
                     <Badge variant="secondary">{edu.grade}</Badge>{" "}
                   </div>{" "}
@@ -163,7 +164,10 @@ export default function EducationAndCertifications() {
               <div>
                 {" "}
                 <p className="font-medium">Node.js Microservices</p>{" "}
-                <p className="text-sm text-muted-foreground"> Pluralsight </p>{" "}
+                <p className="text-sm text-muted-foreground">
+                  {" "}
+                  Pluralsight{" "}
+                </p>{" "}
               </div>{" "}
               <Badge variant="secondary">2022</Badge>{" "}
             </div>{" "}

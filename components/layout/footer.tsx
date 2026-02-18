@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import {
   ArrowUp,
-  Code,
   Coffee,
   Github,
   Heart,
@@ -16,6 +15,7 @@ import {
   Twitter,
   Youtube,
 } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 
 export function Footer() {
@@ -96,7 +96,7 @@ export function Footer() {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-background to-muted/30 border-t relative">
+    <footer className="bg-linear-to-b from-background to-muted/30 border-t relative">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <motion.div
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12"
@@ -107,15 +107,15 @@ export function Footer() {
           {/* Brand Column */}
           <motion.div custom={0} variants={itemVariants}>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-                <Code className="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold">John Doe</h3>
-                <p className="text-sm text-muted-foreground">
-                  Full Stack Developer
-                </p>
-              </div>
+              <Link href="/" className="flex items-center">
+                <Image
+                  src="/logo.png"
+                  alt="Portfolio Logo"
+                  width={130}
+                  height={130}
+                  priority
+                />
+              </Link>
             </div>
             <p className="text-muted-foreground mb-6 max-w-xs">
               Creating digital experiences that inspire and deliver results.

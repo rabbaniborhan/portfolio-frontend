@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { AppWindow, ChevronDown, Database, Globe } from "lucide-react";
 import Image from "next/image";
-
+import { Typewriter } from "react-simple-typewriter";
 export function HeroSection() {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -13,7 +13,6 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex flex-col gap-4 md:flex-row items-center justify-center px-6 md:px-10 lg:px-16 overflow-hidden">
-      {/* Background Image */}
       <div
         className="absolute inset-0  backdrop-opacity-100 "
         style={{
@@ -22,7 +21,7 @@ export function HeroSection() {
       />
 
       {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-700 via-[#0284c7] to-blue-700  opacity-20 mix-blend-overlay" />
+      <div className="absolute inset-0 bg-linear-to-r from-purple-700 via-[#0284c7] to-blue-700  opacity-20 mix-blend-overlay" />
 
       <div className="flex flex-col-reverse md:flex-row items-center  justify-between">
         {/* content -section */}
@@ -33,7 +32,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Crafting Digital Experiences
+            Engineering Digital Experiences
           </motion.p>
 
           <motion.h1
@@ -42,7 +41,18 @@ export function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            Hi, I’m <span className="text-cyan-500 ">Borhan Rabbani</span>
+            Hi, I’m{" "}
+            <span className="text-cyan-500 ">
+              <Typewriter
+                words={["Borhan", "Developer", "Designer"]}
+                loop={true}
+                cursor
+                cursorStyle="_"
+                typeSpeed={90}
+                deleteSpeed={70}
+                delaySpeed={1000}
+              />
+            </span>
           </motion.h1>
 
           <motion.p
@@ -51,12 +61,12 @@ export function HeroSection() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
           >
-            A Full Stack Developer passionate about crafting modern, scalable,
-            and beautiful web experiences.
+            Full Stack Engineer building scalable digital products with MERN,
+            Next.js, and AI-driven innovation.
           </motion.p>
 
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 mt-6 justify-center md:justify-start"
+            className="flex flex-col sm:flex-row gap-4 mt-12 justify-center md:justify-start"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 0.8 }}
