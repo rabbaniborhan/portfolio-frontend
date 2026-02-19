@@ -27,7 +27,7 @@ export default function SmoothScrollProvider({
       root
       options={{
         autoRaf: false,
-        duration: 1.2,
+        duration: 2,
         smoothWheel: true,
         lerp: 0.05,
       }}

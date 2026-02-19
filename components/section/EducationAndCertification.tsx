@@ -4,41 +4,48 @@ import { motion } from "framer-motion";
 import { Calendar, GraduationCap } from "lucide-react";
 import { Badge } from "../ui/badge";
 import { Card, CardContent } from "../ui/card";
-
 const education = [
   {
-    year: "2018-2020",
-    degree: "Master of Science in Computer Science",
-    institution: "Stanford University",
-    grade: "GPA: 3.8/4.0",
+    year: "2022 – Present",
+    degree: "Bachelor of Science (Honours) in Mathematics",
+    institution: "National University, Bangladesh",
+    grade: "Running",
     description:
-      "Specialized in Web Technologies and Distributed Systems. Thesis on 'Optimizing React Applications for Performance'.",
+      "Studying core mathematics including Algebra, Calculus, Real Analysis, and Statistics. Developing strong analytical and problem-solving skills applicable to software engineering and data-driven systems.",
     achievements: [
-      "Graduated with Honors",
-      "Research Assistant",
-      "ACM Chapter President",
+      "Active learner in problem-solving and competitive programming",
+      "Applied mathematical concepts in programming and web development",
+      "Self-learning advanced technologies alongside academic studies",
     ],
   },
   {
-    year: "2014-2018",
-    degree: "Bachelor of Science in Software Engineering",
-    institution: "MIT",
-    grade: "GPA: 3.9/4.0",
+    year: "2018 – 2020",
+    degree: "Higher Secondary Certificate (HSC)",
+    institution: "Science Group",
+    grade: "GPA: 4.58/5.00",
     description:
-      "Focus on Software Development Methodologies and Database Systems. Minor in Business Administration.",
+      "Completed higher secondary education with a focus on Mathematics, Physics, and ICT, building a strong foundation for technical and analytical fields.",
     achievements: [
-      "Summa Cum Laude",
-      "Dean's List All Semesters",
-      "Hackathon Winner 2017",
+      "Strong academic performance in Mathematics",
+      "Active participation in academic activities",
     ],
   },
 ];
 
 const certifications = [
-  { title: "AWS Certified Developer", org: "Amazon", year: "2023" },
-  { title: "React Advanced Patterns", org: "Frontend Masters", year: "2022" },
-  { title: "Node.js Microservices", org: "Pluralsight", year: "2022" },
-  { title: "TypeScript Mastery", org: "Total TypeScript", year: "2021" },
+  { title: "Figma Design System", org: "GP Academy", year: "2026" },
+  {
+    title: "Advanced Backend Software Engineering",
+    org: "Pocket shool ",
+    year: "2025",
+  },
+  {
+    title: "Coding Fundamentals & Logic Building A-Z",
+    org: "Pocket School",
+    year: "2025",
+  },
+
+  { title: "Web Development", org: "Programming Hero", year: "2022" },
 ];
 
 export default function EducationAndCertifications() {
@@ -124,68 +131,29 @@ export default function EducationAndCertifications() {
           </Card>
         ))}{" "}
       </div>{" "}
-      {/* Certifications */}{" "}
+      {/* Certifications */} {/* Certifications */}
       <Card>
-        {" "}
         <CardContent className="pt-6">
-          {" "}
           <h4 className="font-semibold text-lg mb-6 text-center">
-            {" "}
-            Certifications & Courses{" "}
-          </h4>{" "}
+            Certifications & Courses
+          </h4>
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {" "}
-            <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
-              {" "}
-              <div>
-                {" "}
-                <p className="font-medium">AWS Certified Developer</p>{" "}
-                <p className="text-sm text-muted-foreground">
-                  {" "}
-                  Amazon Web Services{" "}
-                </p>{" "}
-              </div>{" "}
-              <Badge variant="secondary">2023</Badge>{" "}
-            </div>{" "}
-            <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
-              {" "}
-              <div>
-                {" "}
-                <p className="font-medium">React Advanced Patterns</p>{" "}
-                <p className="text-sm text-muted-foreground">
-                  {" "}
-                  Frontend Masters{" "}
-                </p>{" "}
-              </div>{" "}
-              <Badge variant="secondary">2022</Badge>{" "}
-            </div>{" "}
-            <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
-              {" "}
-              <div>
-                {" "}
-                <p className="font-medium">Node.js Microservices</p>{" "}
-                <p className="text-sm text-muted-foreground">
-                  {" "}
-                  Pluralsight{" "}
-                </p>{" "}
-              </div>{" "}
-              <Badge variant="secondary">2022</Badge>{" "}
-            </div>{" "}
-            <div className="flex items-center justify-between p-4 bg-muted/50 rounded-lg">
-              {" "}
-              <div>
-                {" "}
-                <p className="font-medium">TypeScript Mastery</p>{" "}
-                <p className="text-sm text-muted-foreground">
-                  {" "}
-                  Total TypeScript{" "}
-                </p>{" "}
-              </div>{" "}
-              <Badge variant="secondary">2021</Badge>{" "}
-            </div>{" "}
-          </div>{" "}
-        </CardContent>{" "}
-      </Card>{" "}
+            {certifications.map((cert, index) => (
+              <div
+                key={index}
+                className="flex items-center justify-between p-4 bg-muted/50 rounded-lg"
+              >
+                <div>
+                  <p className="font-medium">{cert.title}</p>
+                  <p className="text-sm text-muted-foreground">{cert.org}</p>
+                </div>
+                <Badge variant="secondary">{cert.year}</Badge>
+              </div>
+            ))}
+          </div>
+        </CardContent>
+      </Card>
     </motion.div>
   );
 }

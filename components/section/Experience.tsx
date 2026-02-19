@@ -17,42 +17,64 @@ import { Card, CardContent } from "../ui/card";
 
 const experiences = [
   {
-    company: "TechCorp Inc.",
-    position: "Senior Full Stack Developer",
-    duration: "2022 - Present",
+    company: "MakeReal",
+    position: " Full Stack Developer",
+    duration: "January 2024 - June 2025",
     description: [
       "Lead development of customer-facing web applications using React and Node.js",
       "Mentored 3 junior developers and conducted code reviews",
       "Improved application performance by 40% through optimization techniques",
       "Collaborated with UX team to implement responsive designs",
     ],
-    technologies: ["React", "Node.js", "TypeScript", "MongoDB", "AWS"],
+    technologies: [
+      "Nest.js",
+      "Express.js",
+      "TypeScript",
+      "Next.js",
+      "PostgreSQL",
+    ],
     type: "full-time",
   },
   {
-    company: "StartupXYZ",
-    position: "Full Stack Developer",
-    duration: "2020 - 2022",
+    company: "MakeReal",
+    position: "Frontend Developer",
+    duration: "July 2023 – January 2024",
+    type: "Full-time",
     description: [
-      "Developed and maintained multiple client projects using modern web technologies",
-      "Implemented RESTful APIs and integrated third-party services",
-      "Worked closely with clients to gather requirements and deliver solutions",
-      "Participated in agile development processes and sprint planning",
+      "Developed responsive and dynamic user interfaces using React.js, Tailwind CSS, and Bootstrap",
+      "Integrated Firebase services including Authentication and Firestore for real-time data handling",
+      "Connected frontend applications with backend APIs built using Node.js",
+      "Optimized application performance and ensured cross-browser compatibility",
+      "Collaborated with designers and backend developers in an Agile development environment",
     ],
-    technologies: ["Vue.js", "Express", "PostgreSQL", "Docker", "Firebase"],
-    type: "full-time",
+    technologies: [
+      "React.js",
+      "Tailwind CSS",
+      "Bootstrap",
+      "Firebase",
+      "Node.js",
+    ],
   },
   {
     company: "Freelance",
     position: "Web Developer",
-    duration: "2019 - 2020",
+    duration: "May 2023 - Present",
     description: [
       "Built custom websites and web applications for various clients",
       "Specialized in e-commerce solutions and portfolio websites",
       "Managed project timelines and client communications",
       "Provided ongoing maintenance and support services",
     ],
-    technologies: ["JavaScript", "PHP", "WordPress", "CSS3", "HTML5"],
+    technologies: [
+      "JavaScript",
+      "TypeScript",
+      "WordPress",
+      "tailwind",
+      "HTML5",
+      "PostgreSQL",
+      "Next.js",
+      "Nest.js",
+    ],
     type: "freelance",
   },
 ];
@@ -200,7 +222,7 @@ export default function Experience() {
               <h5 className="font-semibold mb-2">Project Delivery</h5>{" "}
               <p className="text-sm text-muted-foreground">
                 {" "}
-                Successfully delivered 50+ projects on time{" "}
+                Successfully delivered 30+ projects on time{" "}
               </p>{" "}
             </div>{" "}
             <div className="text-center p-4 bg-orange-50 dark:bg-orange-900/20 rounded-lg">
