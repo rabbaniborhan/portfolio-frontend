@@ -1,0 +1,200 @@
+"use client";
+
+import { useState } from "react";
+import { useRouter } from "next/navigation";
+import Link from "next/link";
+import api from "@/lib/api";
+
+export default function RegisterPage() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const router = useRouter();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    setLoading(true);
+
+    try {
+      const res = await api.post("/auth/register", { name, email, password });
+      if (res.data.success) {
+        setSuccess(true);
+        setTimeout(() => {
+          router.push("/login");
+        }, 1800);
+      } else {
+        setError(res.data.message || "Failed to register");
+      }
+    } catch (err: any) {
+      setError(err.response?.data?.message || "Registration failed. Email might already be registered.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div
+      style={{
+        minHeight: "92vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        paddingTop: "100px",
+        paddingBottom: "60px",
+        background: "radial-gradient(ellipse 80% 50% at 50% 30%, rgba(99, 102, 241, 0.08), transparent 80%), var(--bg)",
+        position: "relative",
+        overflow: "hidden"
+      }}
+    >
+      {/* Background Ambient Glow Orbs */}
+      <div style={{ position: "absolute", top: "15%", right: "15%", width: "320px", height: "320px", background: "radial-gradient(circle, rgba(0,184,219,0.08) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(40px)" }} />
+      <div style={{ position: "absolute", bottom: "15%", left: "15%", width: "350px", height: "350px", background: "radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(40px)" }} />
+
+      <div className="container" style={{ maxWidth: "540px", position: "relative", zIndex: 2 }}>
+        <div
+          style={{
+            background: "var(--bg2)",
+            border: "1px solid var(--bd)",
+            borderRadius: "24px",
+            padding: "36px 44px",
+            boxShadow: "0 24px 64px rgba(0,0,0,0.35)",
+            position: "relative",
+            overflow: "hidden"
+          }}
+        >
+          {/* Top Gradient Highlight Line */}
+          <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, transparent, var(--ac), #6366f1, transparent)" }} />
+
+          {/* Header Icon */}
+          <div style={{ textAlign: "center", marginBottom: "32px" }}>
+            <div style={{ width: "56px", height: "56px", borderRadius: "16px", background: "rgba(99,102,241,0.1)", border: "1px solid rgba(99,102,241,0.25)", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px", fontSize: "28px" }}>
+              🚀
+            </div>
+            <h1 style={{ fontSize: "26px", fontWeight: 800, color: "var(--tx)", marginBottom: "8px" }}>Create Student Account</h1>
+            <p style={{ fontSize: "14px", color: "var(--tx2)", lineHeight: 1.5 }}>
+              Register to enroll in courses, access products, and start learning.
+            </p>
+          </div>
+
+          {error && (
+            <div style={{ background: "rgba(239, 68, 68, 0.12)", border: "1px solid rgba(239, 68, 68, 0.3)", color: "#ef4444", borderRadius: "12px", padding: "14px", fontSize: "13px", marginBottom: "24px", display: "flex", alignItems: "center", gap: "8px" }}>
+              <span>⚠️</span> <span>{error}</span>
+            </div>
+          )}
+
+          {success && (
+            <div style={{ background: "rgba(34, 197, 94, 0.12)", border: "1px solid rgba(34, 197, 94, 0.3)", color: "#22c55e", borderRadius: "12px", padding: "14px", fontSize: "13px", marginBottom: "24px", textAlign: "center" }}>
+              ✅ Account created successfully! Redirecting to sign in...
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+            <div>
+              <label style={{ display: "block", fontSize: "12px", fontWeight: "bold", color: "var(--tx2)", marginBottom: "8px", textTransform: "uppercase", letterSpacing: ".04em" }}>
+                👤 Full Name
+              </label>
+              <input
+                type="text"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder="John Doe"
+                style={{
+                  width: "100%",
+                  background: "var(--sf)",
+                  border: "1px solid var(--bd)",
+                  borderRadius: "12px",
+                  padding: "13px 16px",
+                  color: "var(--tx)",
+                  fontSize: "14px",
+                  outline: "none",
+                  transition: "all 0.2s"
+                }}
+              />
+            </div>
+
+            <div>
+              <label style={{ display: "block", fontSize: "12px", fontWeight: "bold", color: "var(--tx2)", marginBottom: "8px", textTransform: "uppercase", letterSpacing: ".04em" }}>
+                📧 Email Address
+              </label>
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="you@example.com"
+                style={{
+                  width: "100%",
+                  background: "var(--sf)",
+                  border: "1px solid var(--bd)",
+                  borderRadius: "12px",
+                  padding: "13px 16px",
+                  color: "var(--tx)",
+                  fontSize: "14px",
+                  outline: "none",
+                  transition: "all 0.2s"
+                }}
+              />
+            </div>
+
+            <div>
+              <label style={{ display: "block", fontSize: "12px", fontWeight: "bold", color: "var(--tx2)", marginBottom: "8px", textTransform: "uppercase", letterSpacing: ".04em" }}>
+                🔒 Password
+              </label>
+              <input
+                type="password"
+                required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                placeholder="At least 6 characters"
+                style={{
+                  width: "100%",
+                  background: "var(--sf)",
+                  border: "1px solid var(--bd)",
+                  borderRadius: "12px",
+                  padding: "13px 16px",
+                  color: "var(--tx)",
+                  fontSize: "14px",
+                  outline: "none",
+                  transition: "all 0.2s"
+                }}
+              />
+            </div>
+
+            <button
+              type="submit"
+              disabled={loading || success}
+              style={{
+                width: "100%",
+                padding: "14px",
+                borderRadius: "12px",
+                background: "linear-gradient(135deg, var(--ac), #6366f1)",
+                color: "#ffffff",
+                fontWeight: "bold",
+                fontSize: "15px",
+                border: "none",
+                cursor: "pointer",
+                boxShadow: "0 6px 20px rgba(0,184,219,0.3)",
+                marginTop: "4px"
+              }}
+            >
+              {loading ? "Registering account..." : "✨ Create Free Account"}
+            </button>
+          </form>
+
+          <div style={{ marginTop: "28px", textAlign: "center", fontSize: "14px", color: "var(--tx3)", paddingTop: "20px", borderTop: "1px solid var(--bd)" }}>
+            Already have an account?{" "}
+            <Link href="/login" style={{ color: "var(--ac2)", fontWeight: "800", textDecoration: "none" }}>
+              Sign In
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

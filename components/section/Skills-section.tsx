@@ -1,248 +1,193 @@
 "use client";
 
-import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { AnimatePresence, motion } from "framer-motion";
-import { Cloud, Code, Server, Smartphone, Zap } from "lucide-react";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { fetchSkills } from "@/redux/slices/skillSlice";
+
+const categories = ["All", "Frontend", "Backend", "Database", "DevOps & Tools"];
 
 export function SkillsSection() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLDivElement>(null);
-
-  const skills = [
-    {
-      category: "Frontend",
-      icon: Code,
-      color: "text-blue-500",
-      bgColor: "bg-blue-500",
-      skills: [
-        { name: "React", level: 95 },
-        { name: "Next.js", level: 90 },
-        { name: "TypeScript", level: 88 },
-        { name: "Tailwind CSS", level: 92 },
-        { name: "Vue.js", level: 80 },
-      ],
-    },
-    {
-      category: "Backend",
-      icon: Server,
-      color: "text-green-500",
-      bgColor: "bg-green-500",
-      skills: [
-        { name: "Node.js", level: 90 },
-        { name: "Express", level: 88 },
-        { name: "Python", level: 85 },
-        { name: "PostgreSQL", level: 82 },
-        { name: "MongoDB", level: 85 },
-      ],
-    },
-    {
-      category: "Mobile",
-      icon: Smartphone,
-      color: "text-purple-500",
-      bgColor: "bg-purple-500",
-      skills: [
-        { name: "React Native", level: 85 },
-        { name: "Flutter", level: 70 },
-        { name: "iOS Development", level: 65 },
-      ],
-    },
-    {
-      category: "DevOps",
-      icon: Cloud,
-      color: "text-orange-500",
-      bgColor: "bg-orange-500",
-      skills: [
-        { name: "Docker", level: 80 },
-        { name: "AWS", level: 75 },
-        { name: "CI/CD", level: 78 },
-        { name: "Linux", level: 85 },
-      ],
-    },
-  ];
+  const dispatch = useAppDispatch();
+  const { skills, loading } = useAppSelector((state) => state.skills);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
+    dispatch(fetchSkills());
+  }, [dispatch]);
 
-    if (sectionRef.current) observer.observe(sectionRef.current);
+  const filteredSkills = selectedCategory === "All"
+    ? skills
+    : skills.filter((s) => {
+        const cat = s.category?.toLowerCase() || "";
+        const sel = selectedCategory.toLowerCase();
+        if (sel.includes("devops")) return cat.includes("devops") || cat.includes("tool") || cat.includes("cloud");
+        return cat.includes(sel);
+      });
 
-    return () => observer.disconnect();
-  }, []);
+  const getLevelLabel = (level: number) => {
+    if (level >= 90) return "Expert";
+    if (level >= 80) return "Advanced";
+    if (level >= 70) return "Proficient";
+    return "Intermediate";
+  };
 
-  const ProgressBar = ({
-    level,
-    bgColor,
-    delay = 0,
-  }: {
-    level: number;
-    bgColor: string;
-    delay?: number;
-  }) => (
-    <motion.div
-      className="w-full bg-muted rounded-full h-3 overflow-hidden"
-      initial={{ width: 0 }}
-      animate={{ width: isVisible ? `${level}%` : 0 }}
-      transition={{ duration: 1, delay: delay / 1000 }}
-    >
-      <div className={`h-3 rounded-full ${bgColor}`} />
-    </motion.div>
-  );
+  const getSkillIcon = (s: any) => {
+    const raw = s.icon?.trim();
+    if (!raw) return { isUrl: false, src: "", emoji: "💻" };
+    if (raw.startsWith("http://") || raw.startsWith("https://") || raw.startsWith("data:") || raw.startsWith("/") || raw.startsWith("uploads/") || raw.includes("/") || raw.includes(".")) {
+      let src = raw;
+      if (raw.startsWith("/uploads/") || raw.startsWith("uploads/")) {
+        const host = process.env.NEXT_PUBLIC_API_URL?.replace("/api", "") || "http://localhost:5000";
+        src = raw.startsWith("/") ? `${host}${raw}` : `${host}/${raw}`;
+      }
+      return { isUrl: true, src, emoji: "💻" };
+    }
+    return { isUrl: false, src: "", emoji: raw };
+  };
 
   return (
-    <section id="skills" className="pt-10 relative" ref={sectionRef}>
-      <div
-        className="absolute inset-0 z-0 opacity-10"
-        style={{ backgroundImage: "url('/hero.svg')" }}
-      />
+    <section
+      id="skills"
+      className="sp"
+      style={{
+        background: "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 184, 219, 0.09), transparent 80%), linear-gradient(180deg, var(--bg) 0%, var(--bg2) 50%, var(--bg) 100%)",
+        position: "relative",
+        overflow: "hidden"
+      }}
+    >
+      {/* Modern Ambient Backdrop Orbs */}
+      <div style={{ position: "absolute", top: "15%", left: "5%", width: "300px", height: "300px", background: "radial-gradient(circle, rgba(0,184,219,0.08) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(40px)" }} />
+      <div style={{ position: "absolute", bottom: "15%", right: "5%", width: "350px", height: "350px", background: "radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(40px)" }} />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container" style={{ position: "relative", zIndex: 2 }}>
         {/* Section Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-        >
-          <Badge variant="secondary" className="mb-4 inline-flex items-center">
-            <Zap className="h-3 w-3 mr-1" />
-            Technical Skills
-          </Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Skills & Expertise
+        <div style={{ textAlign: "center", marginBottom: "48px" }}>
+          <div className="lbl" style={{ justifyContent: "center" }}>Technical Proficiency</div>
+          <h2 className="stitle" style={{ fontSize: "clamp(24px, 3vw, 38px)" }}>
+            Skills &amp; Tech Stack
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Here's a comprehensive overview of my technical skills and
-            proficiency levels across different technologies.
+          <p className="sdesc" style={{ maxWidth: "600px", margin: "0 auto" }}>
+            A comprehensive overview of my technical skills across frontend, backend, database architecture, and tools.
           </p>
-        </motion.div>
-
-        {/* Skills Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-          <AnimatePresence>
-            {skills.map((category, categoryIndex) => (
-              <motion.div
-                key={category.category}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: categoryIndex * 0.2 }}
-                viewport={{ once: true }}
-              >
-                <Card className="group hover:shadow-lg transition-all duration-300">
-                  <CardHeader className="pb-4">
-                    <div className="flex items-center space-x-3">
-                      <div className={`p-3 rounded-xl ${category.bgColor}/10`}>
-                        <category.icon
-                          className={`h-6 w-6 ${category.color}`}
-                        />
-                      </div>
-                      <div>
-                        <CardTitle className="text-xl">
-                          {category.category}
-                        </CardTitle>
-                        <CardDescription>
-                          {category.skills.length} skills
-                        </CardDescription>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="space-y-6">
-                    {category.skills.map((skill, skillIndex) => (
-                      <div key={skill.name} className="space-y-3">
-                        <div className="flex justify-between items-center">
-                          <span className="font-medium text-sm">
-                            {skill.name}
-                          </span>
-                          <span className="text-muted-foreground text-sm">
-                            {skill.level}%
-                          </span>
-                        </div>
-                        <ProgressBar
-                          level={skill.level}
-                          bgColor={category.bgColor}
-                          delay={categoryIndex * 100 + skillIndex * 50}
-                        />
-                      </div>
-                    ))}
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </AnimatePresence>
         </div>
 
-        {/* Additional Skills */}
-        <motion.div
-          className="mt-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          viewport={{ once: true }}
-        >
-          <Card>
-            <CardHeader className="text-center">
-              <CardTitle>Additional Technologies</CardTitle>
-              <CardDescription>
-                Other tools and technologies I work with
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-wrap justify-center gap-3">
-                {[
-                  "Git",
-                  "GitHub",
-                  "Figma",
-                  "Jest",
-                  "Cypress",
-                  "Webpack",
-                  "Vite",
-                  "Redis",
-                  "GraphQL",
-                  "REST APIs",
-                  "JWT",
-                  "OAuth",
-                  "WebSockets",
-                  "Nginx",
-                  "PM2",
-                  "Jira",
-                  "Slack",
-                  "VS Code",
-                  "Postman",
-                ].map((tech, index) => (
-                  <motion.div
-                    key={tech}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.4, delay: index * 0.05 }}
-                    viewport={{ once: true }}
-                  >
-                    <Badge
-                      variant="secondary"
-                      className="px-3 py-2 text-sm cursor-default"
-                    >
-                      {tech}
-                    </Badge>
-                  </motion.div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+        {/* Category Tabs */}
+        <div style={{ display: "flex", flexWrap: "wrap", gap: "10px", justifyContent: "center", marginBottom: "40px" }}>
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              style={{
+                padding: "8px 22px",
+                borderRadius: "30px",
+                border: "1px solid " + (cat === selectedCategory ? "var(--ac2)" : "var(--bd)"),
+                background: cat === selectedCategory ? "linear-gradient(135deg, var(--ac), #6366f1)" : "var(--bg2)",
+                color: cat === selectedCategory ? "#ffffff" : "var(--tx2)",
+                fontSize: "12px",
+                fontWeight: "bold",
+                cursor: "pointer",
+                fontFamily: "'JetBrains Mono', monospace",
+                transition: "all 0.25s ease",
+                boxShadow: cat === selectedCategory ? "0 4px 16px rgba(0,184,219,0.3)" : "none"
+              }}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Skills Cards Grid */}
+        {loading ? (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: "20px" }}>
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className="animate-pulse" style={{ background: "var(--bg2)", border: "1px solid var(--bd)", borderRadius: "16px", padding: "24px", height: "140px" }} />
+            ))}
+          </div>
+        ) : filteredSkills.length === 0 ? (
+          <p style={{ textAlign: "center", color: "var(--tx3)", padding: "40px" }}>No skills listed in this category yet.</p>
+        ) : (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "20px" }}>
+            {filteredSkills.map((s) => {
+              const iconData = getSkillIcon(s);
+              const lvlText = getLevelLabel(s.proficiency || 85);
+              const pct = s.proficiency || 85;
+
+              return (
+                <div
+                  key={s._id}
+                  style={{
+                    background: "var(--bg2)",
+                    border: "1px solid var(--bd)",
+                    borderRadius: "16px",
+                    padding: "20px 24px",
+                    position: "relative",
+                    overflow: "hidden",
+                    transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                    boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "space-between"
+                  }}
+                  className="sk-card-hover"
+                >
+                  <div>
+                    {/* Top Row: Icon + Level Badge */}
+                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "12px" }}>
+                      <div style={{ width: "42px", height: "42px", borderRadius: "12px", background: "rgba(0,184,219,0.08)", border: "1px solid rgba(0,184,219,0.2)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+                        {iconData.isUrl ? (
+                          <img src={iconData.src} alt={s.name} style={{ width: "24px", height: "24px", objectFit: "contain" }} />
+                        ) : (
+                          <span style={{ fontSize: "20px" }}>{iconData.emoji}</span>
+                        )}
+                      </div>
+
+                      <span style={{ fontSize: "10px", fontWeight: 800, padding: "4px 10px", borderRadius: "12px", background: "rgba(0,184,219,0.12)", color: "var(--ac2)", border: "1px solid rgba(0,184,219,0.25)", textTransform: "uppercase", letterSpacing: ".05em" }}>
+                        {lvlText}
+                      </span>
+                    </div>
+
+                    {/* Skill Title & Category */}
+                    <h3 style={{ fontSize: "16px", fontWeight: "bold", color: "var(--tx)", marginBottom: "4px" }}>
+                      {s.name}
+                    </h3>
+                    <div style={{ fontSize: "11px", color: "var(--tx3)", fontFamily: "'JetBrains Mono', monospace", marginBottom: "16px", textTransform: "uppercase" }}>
+                      {s.category || "Full Stack"}
+                    </div>
+                  </div>
+
+                  {/* Progress Bar & Percentage */}
+                  <div>
+                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: "11px", color: "var(--tx2)", fontWeight: "bold", marginBottom: "6px", fontFamily: "'JetBrains Mono', monospace" }}>
+                      <span>Proficiency</span>
+                      <span style={{ color: "var(--ac2)" }}>{pct}%</span>
+                    </div>
+                    <div style={{ width: "100%", height: "6px", background: "var(--sf)", borderRadius: "10px", overflow: "hidden", border: "1px solid var(--bd)" }}>
+                      <div
+                        style={{
+                          width: `${pct}%`,
+                          height: "100%",
+                          background: "linear-gradient(90deg, var(--ac), #6366f1)",
+                          borderRadius: "10px",
+                          boxShadow: "0 0 12px rgba(0,184,219,0.5)",
+                          transition: "width 1s ease-in-out"
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
       </div>
+
+      <style>{`
+        .sk-card-hover:hover {
+          transform: translateY(-5px);
+          border-color: rgba(0, 184, 219, 0.4) !important;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 184, 219, 0.15) !important;
+        }
+      `}</style>
     </section>
   );
 }
