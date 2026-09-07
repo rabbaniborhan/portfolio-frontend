@@ -23,9 +23,13 @@ export default function LoginPage() {
     try {
       const res = await api.post("/auth/login", { email, password });
       if (res.data.success) {
+        if (res.data.token && typeof window !== "undefined") {
+          localStorage.setItem("token", res.data.token);
+        }
         setUser(res.data.user);
         if (res.data.user.role === "ADMIN") {
-          window.location.href = "http://localhost:3001/";
+          const dashboardUrl = process.env.NEXT_PUBLIC_DASHBOARD_URL || "http://localhost:3001";
+          window.location.href = dashboardUrl;
         } else {
           router.push("/dashboard");
         }

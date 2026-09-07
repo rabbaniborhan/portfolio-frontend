@@ -35,6 +35,13 @@ async function httpRequest<T = any>(
     ? {}
     : { "Content-Type": "application/json" };
 
+  if (typeof window !== "undefined") {
+    const token = localStorage.getItem("token");
+    if (token) {
+      headers["Authorization"] = `Bearer ${token}`;
+    }
+  }
+
   const isGet = method.toUpperCase() === "GET";
 
   const fetchConfig: RequestInit = {
