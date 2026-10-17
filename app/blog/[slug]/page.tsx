@@ -98,7 +98,7 @@ export default function BlogPostDetailsPage() {
         <Link
           href="/blog"
           style={{
-            color: "var(--ac)",
+            color: "#ffffff",
             fontSize: "14px",
             fontWeight: "700",
             display: "inline-flex",
@@ -106,10 +106,11 @@ export default function BlogPostDetailsPage() {
             gap: "8px",
             marginBottom: "32px",
             textDecoration: "none",
-            background: "rgba(147,51,234,0.12)",
-            padding: "8px 16px",
+            background: "linear-gradient(135deg, rgba(96, 79, 251, 0.22), rgba(238, 5, 227, 0.22))",
+            padding: "8px 18px",
             borderRadius: "100px",
-            border: "1px solid rgba(168,85,247,0.25)",
+            border: "1px solid rgba(238, 5, 227, 0.4)",
+            boxShadow: "0 2px 10px rgba(96, 79, 251, 0.2)",
             transition: "all 0.2s ease",
           }}
         >
@@ -127,10 +128,10 @@ export default function BlogPostDetailsPage() {
                   fontWeight: "700",
                   textTransform: "uppercase",
                   letterSpacing: "0.05em",
-                  color: "var(--ac)",
-                  background: "rgba(147,51,234,0.15)",
-                  border: "1px solid rgba(168,85,247,0.3)",
-                  padding: "4px 12px",
+                  color: "#ffffff",
+                  background: "linear-gradient(135deg, rgba(96, 79, 251, 0.25), rgba(238, 5, 227, 0.25))",
+                  border: "1px solid rgba(238, 5, 227, 0.4)",
+                  padding: "4px 14px",
                   borderRadius: "100px",
                 }}
               >
@@ -194,13 +195,14 @@ export default function BlogPostDetailsPage() {
                   width: "40px",
                   height: "40px",
                   borderRadius: "50%",
-                  background: "linear-gradient(135deg, var(--ac), #006a7e)",
+                  background: "linear-gradient(135deg, #604ffb, #ee05e3)",
                   color: "#fff",
                   fontWeight: "bold",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   fontSize: "16px",
+                  boxShadow: "0 2px 10px rgba(238, 5, 227, 0.35)"
                 }}
               >
                 {post.author ? post.author[0] : "B"}
@@ -416,15 +418,15 @@ export default function BlogPostDetailsPage() {
                 type="submit"
                 disabled={submittingComment}
                 style={{
-                  padding: "10px 24px",
+                  padding: "12px 28px",
                   borderRadius: "10px",
-                  background: "linear-gradient(135deg, var(--ac), #9333ea)",
+                  background: "linear-gradient(135deg, #604ffb 0%, #ee05e3 100%)",
                   color: "#ffffff",
                   fontWeight: "bold",
-                  fontSize: "13px",
+                  fontSize: "14px",
                   border: "none",
                   cursor: "pointer",
-                  boxShadow: "0 4px 14px rgba(168,85,247,0.35)"
+                  boxShadow: "0 4px 18px rgba(238, 5, 227, 0.45)"
                 }}
               >
                 {submittingComment ? "Posting..." : "💬 Post Comment"}

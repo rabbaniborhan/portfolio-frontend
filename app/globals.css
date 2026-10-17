@@ -1513,3 +1513,41 @@ footer { background:var(--bg2); border-top:1px solid var(--bd); padding:64px 0 2
   color: var(--ac2);
 }
 
+/* ===================== FOOTER LINK HOVER SHIFT ANIMATION ===================== */
+.ft-link {
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease !important;
+}
+
+.ft-link:hover {
+  transform: translateX(6px);
+  color: #ee05e3 !important;
+}
+
+.ft-link:hover span {
+  color: #ee05e3 !important;
+}
+
+.ft-contact-item {
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease !important;
+}
+
+.ft-contact-item:hover {
+  transform: translateX(6px);
+  color: var(--tx) !important;
+}
+
+.soc-pill {
+  transition: transform 0.22s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease, background 0.2s ease !important;
+}
+
+.soc-pill:hover {
+  transform: translateY(-2px);
+  border-color: rgba(238, 5, 227, 0.45) !important;
+  box-shadow: 0 4px 14px rgba(96, 79, 251, 0.25);
+}
+
+.ftbk:hover {
+  transform: translateY(-2px);
+  border-color: rgba(238, 5, 227, 0.4) !important;
+}
+

@@ -57,17 +57,17 @@ export default function ProjectDetailPage() {
         <Link
           href="/projects"
           style={{
-            color: "var(--ac2)",
+            color: "#ffffff",
             fontSize: "14px",
             fontWeight: "bold",
             display: "inline-flex",
             alignItems: "center",
             gap: "8px",
             marginBottom: "28px",
-            padding: "8px 16px",
+            padding: "8px 18px",
             borderRadius: "10px",
-            background: "var(--sf)",
-            border: "1px solid var(--bd)",
+            background: "linear-gradient(135deg, rgba(96, 79, 251, 0.2), rgba(238, 5, 227, 0.2))",
+            border: "1px solid rgba(238, 5, 227, 0.4)",
             textDecoration: "none",
             transition: "all 0.2s"
           }}
@@ -78,7 +78,7 @@ export default function ProjectDetailPage() {
         <article>
           {/* Top Metadata Badges */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px", flexWrap: "wrap" }}>
-            <span style={{ fontSize: "11px", fontWeight: 800, textTransform: "uppercase", padding: "4px 12px", borderRadius: "20px", background: "rgba(147,51,234,0.18)", color: "var(--ac2)", border: "1px solid rgba(168,85,247,0.35)", letterSpacing: ".06em" }}>
+            <span style={{ fontSize: "11px", fontWeight: 800, textTransform: "uppercase", padding: "5px 14px", borderRadius: "20px", background: "linear-gradient(135deg, rgba(96, 79, 251, 0.2), rgba(238, 5, 227, 0.2))", color: "#ee05e3", border: "1px solid rgba(238, 5, 227, 0.4)", letterSpacing: ".06em" }}>
               🏷️ {project.category || "Web App"}
             </span>
 
@@ -137,12 +137,12 @@ export default function ProjectDetailPage() {
                       textAlign: "center",
                       padding: "12px 20px",
                       borderRadius: "10px",
-                      background: "linear-gradient(135deg, var(--ac), #9333ea)",
+                      background: "linear-gradient(135deg, #604ffb 0%, #ee05e3 100%)",
                       color: "#ffffff",
                       fontWeight: "bold",
                       fontSize: "13px",
                       textDecoration: "none",
-                      boxShadow: "0 4px 14px rgba(168,85,247,0.35)",
+                      boxShadow: "0 4px 18px rgba(238, 5, 227, 0.45)",
                       display: "inline-flex",
                       alignItems: "center",
                       justifyContent: "center",

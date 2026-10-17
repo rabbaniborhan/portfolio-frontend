@@ -190,6 +190,7 @@ export function Footer() {
                 href="https://wa.me/8801704267876"
                 target="_blank"
                 rel="noopener noreferrer"
+                className="ft-contact-item"
                 style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "13.5px", color: "var(--tx2)", textDecoration: "none" }}
               >
                 <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(37, 211, 102, 0.12)", color: "#25D366", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px", flexShrink: 0 }}>
@@ -200,6 +201,7 @@ export function Footer() {
 
               <a
                 href={`mailto:${about.social?.email || "brborhan70@gmail.com"}`}
+                className="ft-contact-item"
                 style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "13.5px", color: "var(--tx2)", textDecoration: "none" }}
               >
                 <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(147, 51, 234, 0.16)", color: "var(--ac2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px", flexShrink: 0 }}>

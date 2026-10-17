@@ -165,14 +165,14 @@ export default function ProductDetailsPage() {
         position: "relative",
         overflow: "hidden",
         padding: "60px 0 48px",
-        background: "radial-gradient(ellipse at 25% 30%, rgba(124,106,247,0.18), transparent 55%), radial-gradient(ellipse at 85% 10%, rgba(34,211,238,0.10), transparent 50%), var(--bg)",
+        background: "radial-gradient(ellipse at 25% 30%, rgba(96, 79, 251, 0.22), transparent 55%), radial-gradient(ellipse at 85% 10%, rgba(238, 5, 227, 0.15), transparent 50%), var(--bg)",
         borderBottom: "1px solid var(--bd)"
       }}>
         <div className="container">
           <Link
             href="/products"
             style={{
-              color: "var(--ac2, #a78bfa)",
+              color: "#ffffff",
               fontSize: "13px",
               fontWeight: "700",
               display: "inline-flex",
@@ -180,10 +180,11 @@ export default function ProductDetailsPage() {
               gap: "8px",
               marginBottom: "28px",
               textDecoration: "none",
-              background: "rgba(124,106,247,0.12)",
-              padding: "6px 16px",
+              background: "linear-gradient(135deg, rgba(96, 79, 251, 0.22), rgba(238, 5, 227, 0.22))",
+              padding: "7px 18px",
               borderRadius: "100px",
-              border: "1px solid rgba(124,106,247,0.3)"
+              border: "1px solid rgba(238, 5, 227, 0.4)",
+              boxShadow: "0 2px 10px rgba(96, 79, 251, 0.2)"
             }}
           >
             ← Back to Store Catalog
@@ -203,9 +204,9 @@ export default function ProductDetailsPage() {
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "8px",
-                  background: "rgba(124,106,247,0.15)",
-                  border: "1px solid rgba(124,106,247,0.35)",
-                  color: "var(--ac2, #a78bfa)",
+                  background: "linear-gradient(135deg, rgba(96, 79, 251, 0.18), rgba(238, 5, 227, 0.18))",
+                  border: "1px solid rgba(238, 5, 227, 0.35)",
+                  color: "#e0e7ff",
                   fontSize: "12px",
                   padding: "5px 14px",
                   borderRadius: "20px",
@@ -327,7 +328,7 @@ export default function ProductDetailsPage() {
                       display: "inline-flex",
                       alignItems: "center",
                       gap: "10px",
-                      background: "linear-gradient(135deg, var(--ac, #7c6af7), #6254d8)",
+                      background: "linear-gradient(135deg, #604ffb 0%, #ee05e3 100%)",
                       color: "#fff",
                       padding: "15px 32px",
                       borderRadius: "12px",
@@ -335,7 +336,7 @@ export default function ProductDetailsPage() {
                       fontWeight: 700,
                       border: "none",
                       cursor: "pointer",
-                      boxShadow: "0 0 32px rgba(124,106,247,0.4)"
+                      boxShadow: "0 4px 20px rgba(238, 5, 227, 0.45)"
                     }}
                   >
                     🚀 {isFree ? "Get Free Access" : "Add to Cart & Checkout"}
@@ -351,13 +352,13 @@ export default function ProductDetailsPage() {
                         display: "inline-flex",
                         alignItems: "center",
                         gap: "8px",
-                        background: "rgba(124,106,247,0.15)",
-                        color: "var(--ac2, #a78bfa)",
+                        background: "linear-gradient(135deg, rgba(96, 79, 251, 0.16), rgba(238, 5, 227, 0.16))",
+                        color: "#fff",
                         padding: "15px 24px",
                         borderRadius: "12px",
                         fontSize: "15px",
                         fontWeight: 700,
-                        border: "1px solid rgba(124,106,247,0.4)",
+                        border: "1px solid rgba(238, 5, 227, 0.4)",
                         cursor: "pointer"
                       }}
                     >
@@ -378,10 +379,10 @@ export default function ProductDetailsPage() {
             {/* Right Column: Sticky Purchase Sidebar Card */}
             <aside style={{
               background: "var(--bg2)",
-              border: "1px solid rgba(124,106,247,0.3)",
+              border: "1px solid rgba(238, 5, 227, 0.3)",
               borderRadius: "20px",
               padding: "24px",
-              boxShadow: "0 20px 60px rgba(0,0,0,0.45)",
+              boxShadow: "0 20px 60px rgba(0,0,0,0.45), 0 0 24px rgba(96, 79, 251, 0.12)",
               position: "sticky",
               top: "100px"
             }}>
@@ -392,7 +393,7 @@ export default function ProductDetailsPage() {
                 overflow: "hidden",
                 border: "1px solid var(--bd)",
                 marginBottom: "20px",
-                background: "linear-gradient(135deg, rgba(124,106,247,0.2), rgba(34,211,238,0.1))",
+                background: "linear-gradient(135deg, rgba(96, 79, 251, 0.25), rgba(238, 5, 227, 0.2))",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center"
@@ -425,14 +426,15 @@ export default function ProductDetailsPage() {
                     alignItems: "center",
                     justifyContent: "center",
                     gap: "8px",
-                    background: "linear-gradient(135deg, #7c6af7, #6254d8)",
+                    background: "linear-gradient(135deg, #604ffb 0%, #ee05e3 100%)",
                     color: "#fff",
                     padding: "14px",
                     borderRadius: "10px",
                     fontSize: "15px",
                     fontWeight: "700",
                     border: "none",
-                    cursor: "pointer"
+                    cursor: "pointer",
+                    boxShadow: "0 4px 18px rgba(238, 5, 227, 0.4)"
                   }}
                 >
                   🚀 {isFree ? "Download Now" : "Buy Product Now"}
@@ -451,13 +453,13 @@ export default function ProductDetailsPage() {
                       alignItems: "center",
                       justifyContent: "center",
                       gap: "8px",
-                      background: "rgba(124,106,247,0.15)",
-                      color: "var(--ac2, #a78bfa)",
+                      background: "linear-gradient(135deg, rgba(96, 79, 251, 0.16), rgba(238, 5, 227, 0.16))",
+                      color: "#fff",
                       padding: "12px",
                       borderRadius: "10px",
                       fontSize: "14px",
                       fontWeight: "700",
-                      border: "1px solid rgba(124,106,247,0.4)",
+                      border: "1px solid rgba(238, 5, 227, 0.4)",
                       cursor: "pointer"
                     }}
                   >
