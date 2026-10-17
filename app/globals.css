@@ -351,67 +351,70 @@ html[data-theme="light"] .logo-text {
 .nl {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 12px;
 }
 
 .nl a {
   position: relative;
   color: var(--tx2);
   font-size: 13.5px;
-  padding: 8px 14px;
-  border-radius: 8px;
+  padding: 8px 6px;
+  background: transparent !important;
   font-weight: 500;
   text-decoration: none;
-  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: color 0.2s ease;
   display: inline-block;
+  box-shadow: none !important;
+  border-radius: 0 !important;
 }
 
-/* Subtle hover animation: slight lift, color glow, and soft glass background */
+/* Hover: pure text color highlight, no button box */
 .nl a:hover {
   color: #ffffff !important;
-  background: linear-gradient(135deg, rgba(96, 79, 251, 0.14), rgba(238, 5, 227, 0.14));
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(96, 79, 251, 0.15);
+  background: transparent !important;
+  box-shadow: none !important;
+  transform: none !important;
 }
 
-/* Light mode hover state */
+/* Light mode hover text */
 html[data-theme="light"] .nl a:hover {
   color: #604ffb !important;
-  background: rgba(96, 79, 251, 0.08);
+  background: transparent !important;
 }
 
-/* Bottom sliding glow indicator */
+/* Bottom sliding neon border indicator */
 .nl a::after {
   content: '';
   position: absolute;
-  bottom: 3px;
+  bottom: 0px;
   left: 50%;
   width: 0;
   height: 2px;
   background: linear-gradient(90deg, #604ffb, #ee05e3);
   border-radius: 2px;
   transform: translateX(-50%);
-  transition: width 0.25s ease;
-  box-shadow: 0 0 8px rgba(238, 5, 227, 0.8);
+  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 0 10px rgba(238, 5, 227, 0.85);
 }
 
 .nl a:hover::after {
-  width: 60%;
+  width: 100%;
 }
 
 .nl a.active {
   color: #ffffff !important;
   font-weight: 600;
-  background: linear-gradient(135deg, rgba(96, 79, 251, 0.18), rgba(238, 5, 227, 0.18));
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 html[data-theme="light"] .nl a.active {
   color: #604ffb !important;
-  background: rgba(96, 79, 251, 0.12);
+  background: transparent !important;
 }
 
 .nl a.active::after {
-  width: 70%;
+  width: 100%;
 }
 
 .nh {

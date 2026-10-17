@@ -253,7 +253,7 @@ export function Footer() {
           }}
         >
           <span style={{ fontSize: "13px", color: "var(--tx3)" }}>
-            © {year} <strong>{about.name}</strong>. Built with Next.js, Node.js &amp; ❤️
+            © {year} <strong>{about.name}</strong>. All rights reserved.
           </span>
 
           <button
