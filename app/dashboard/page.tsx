@@ -50,7 +50,7 @@ export default function StudentDashboard() {
   if (authLoading || !checked || !user) {
     return (
       <div style={{ paddingTop: "140px", textAlign: "center", minHeight: "80vh" }}>
-        <div style={{ display: "inline-block", width: "42px", height: "42px", border: "3px solid rgba(0,184,219,0.2)", borderTopColor: "var(--ac2, #38bdf8)", borderRadius: "50%", animation: "spin 1s linear infinite" }} />
+        <div style={{ display: "inline-block", width: "42px", height: "42px", border: "3px solid rgba(168,85,247,0.25)", borderTopColor: "var(--ac2)", borderRadius: "50%", animation: "spin 1s linear infinite" }} />
         <p style={{ marginTop: "16px", color: "var(--tx2)", fontSize: "15px" }}>Loading your learning dashboard...</p>
       </div>
     );
@@ -78,12 +78,12 @@ export default function StudentDashboard() {
         {/* Executive Student Banner */}
         <div
           style={{
-            background: "linear-gradient(135deg, rgba(0,184,219,0.12), rgba(99,102,241,0.08))",
+            background: "linear-gradient(135deg, rgba(147,51,234,0.15), rgba(168,85,247,0.1))",
             border: "1px solid var(--bd)",
             borderRadius: "20px",
             padding: "28px 32px",
             marginBottom: "32px",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.25)",
             display: "flex",
             flexWrap: "wrap",
             alignItems: "center",
@@ -97,14 +97,14 @@ export default function StudentDashboard() {
                 width: "68px",
                 height: "68px",
                 borderRadius: "50%",
-                background: "linear-gradient(135deg, var(--ac), #6366f1)",
+                background: "linear-gradient(135deg, var(--ac), #9333ea)",
                 color: "#ffffff",
                 fontSize: "28px",
                 fontWeight: "bold",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                boxShadow: "0 6px 20px rgba(0,184,219,0.3)",
+                boxShadow: "0 6px 20px rgba(168,85,247,0.4)",
                 border: "2px solid rgba(255,255,255,0.2)"
               }}
             >
@@ -113,7 +113,7 @@ export default function StudentDashboard() {
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", flexWrap: "wrap" }}>
                 <h1 style={{ fontSize: "24px", fontWeight: "800", color: "var(--tx)" }}>Welcome, {user.name} 👋</h1>
-                <span style={{ fontSize: "11px", fontWeight: 800, padding: "3px 10px", borderRadius: "14px", background: "rgba(0,184,219,0.15)", color: "var(--ac2)", border: "1px solid rgba(0,184,219,0.3)", fontFamily: "'JetBrains Mono', monospace" }}>
+                <span style={{ fontSize: "11px", fontWeight: 800, padding: "3px 10px", borderRadius: "14px", background: "rgba(147,51,234,0.18)", color: "var(--ac2)", border: "1px solid rgba(168,85,247,0.35)", fontFamily: "'JetBrains Mono', monospace" }}>
                   STUDENT PORTAL
                 </span>
               </div>
@@ -144,7 +144,7 @@ export default function StudentDashboard() {
         {/* Metric Cards Summary */}
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "20px", marginBottom: "36px" }}>
           <div style={{ background: "var(--bg2)", border: "1px solid var(--bd)", borderRadius: "16px", padding: "20px", display: "flex", alignItems: "center", gap: "16px" }}>
-            <div style={{ width: "48px", height: "48px", borderRadius: "12px", background: "rgba(0,184,219,0.1)", color: "var(--ac2)", fontSize: "22px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ width: "48px", height: "48px", borderRadius: "12px", background: "rgba(147,51,234,0.15)", color: "var(--ac2)", fontSize: "22px", display: "flex", alignItems: "center", justifyContent: "center" }}>
               📚
             </div>
             <div>
@@ -212,7 +212,7 @@ export default function StudentDashboard() {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
-                  boxShadow: activeTab === tab.id ? "0 4px 16px rgba(0,184,219,0.3)" : "none"
+                  boxShadow: activeTab === tab.id ? "0 4px 16px rgba(168,85,247,0.35)" : "none"
                 }}
               >
                 <span>{tab.label}</span>
@@ -229,7 +229,7 @@ export default function StudentDashboard() {
           <div style={{ background: "var(--bg2)", border: "1px solid var(--bd)", borderRadius: "20px", padding: "32px", minHeight: "450px" }}>
             {loading ? (
               <div style={{ textAlign: "center", padding: "60px 20px" }}>
-                <div style={{ display: "inline-block", width: "36px", height: "36px", border: "3px solid rgba(0,184,219,0.2)", borderTopColor: "var(--ac2)", borderRadius: "50%", animation: "spin 1s linear infinite" }} />
+                <div style={{ display: "inline-block", width: "36px", height: "36px", border: "3px solid rgba(168,85,247,0.25)", borderTopColor: "var(--ac2)", borderRadius: "50%", animation: "spin 1s linear infinite" }} />
                 <p style={{ marginTop: "12px", color: "var(--tx2)", fontSize: "14px" }}>Fetching your account data...</p>
               </div>
             ) : (
@@ -251,7 +251,7 @@ export default function StudentDashboard() {
                         <p style={{ color: "var(--tx2)", fontSize: "14px", marginBottom: "20px", maxWidth: "420px", margin: "0 auto 20px" }}>
                           Enroll in expert-led full-stack development and AI engineering courses to kickstart your career.
                         </p>
-                        <Link href="/courses" style={{ padding: "10px 24px", borderRadius: "10px", background: "linear-gradient(135deg, var(--ac), #0096b8)", color: "#fff", fontWeight: "bold", fontSize: "13px", textDecoration: "none", display: "inline-block" }}>
+                        <Link href="/courses" style={{ padding: "10px 24px", borderRadius: "10px", background: "linear-gradient(135deg, var(--ac), #9333ea)", color: "#fff", fontWeight: "bold", fontSize: "13px", textDecoration: "none", display: "inline-block" }}>
                           Explore Available Courses
                         </Link>
                       </div>
@@ -272,7 +272,7 @@ export default function StudentDashboard() {
                                 {/* Progress Bar */}
                                 <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
                                   <div style={{ flex: 1, height: "8px", background: "var(--bd)", borderRadius: "10px", overflow: "hidden" }}>
-                                    <div style={{ width: `${en.progress || 0}%`, height: "100%", background: "linear-gradient(90deg, var(--ac), #6366f1)", borderRadius: "10px" }} />
+                                    <div style={{ width: `${en.progress || 0}%`, height: "100%", background: "linear-gradient(90deg, var(--ac), var(--ac2))", borderRadius: "10px" }} />
                                   </div>
                                   <span style={{ fontSize: "12px", fontWeight: "bold", color: "var(--ac2)", fontFamily: "'JetBrains Mono', monospace" }}>
                                     {en.progress || 0}% Complete
@@ -285,12 +285,12 @@ export default function StudentDashboard() {
                                 style={{
                                   padding: "11px 22px",
                                   borderRadius: "10px",
-                                  background: "linear-gradient(135deg, var(--ac), #0096b8)",
+                                  background: "linear-gradient(135deg, var(--ac), #9333ea)",
                                   color: "#ffffff",
                                   fontWeight: "bold",
                                   fontSize: "13px",
                                   textDecoration: "none",
-                                  boxShadow: "0 4px 14px rgba(0,184,219,0.25)",
+                                  boxShadow: "0 4px 14px rgba(168,85,247,0.35)",
                                   whiteSpace: "nowrap"
                                 }}
                               >
@@ -315,7 +315,7 @@ export default function StudentDashboard() {
                         <p style={{ color: "var(--tx2)", fontSize: "14px", marginBottom: "20px" }}>
                           Purchased templates, source code packages, and eBooks will appear here for instant download.
                         </p>
-                        <Link href="/products" style={{ padding: "10px 24px", borderRadius: "10px", background: "linear-gradient(135deg, var(--ac), #0096b8)", color: "#fff", fontWeight: "bold", fontSize: "13px", textDecoration: "none", display: "inline-block" }}>
+                        <Link href="/products" style={{ padding: "10px 24px", borderRadius: "10px", background: "linear-gradient(135deg, var(--ac), #9333ea)", color: "#fff", fontWeight: "bold", fontSize: "13px", textDecoration: "none", display: "inline-block" }}>
                           Browse Digital Products
                         </Link>
                       </div>
@@ -324,7 +324,7 @@ export default function StudentDashboard() {
                         {downloads.map((item, idx) => (
                           <div key={idx} style={{ border: "1px solid var(--bd)", borderRadius: "14px", padding: "18px 20px", background: "var(--sf)", display: "flex", alignItems: "center", justifyContent: "space-between", gap: "16px" }}>
                             <div>
-                              <span style={{ fontSize: "10px", fontWeight: 800, padding: "2px 8px", borderRadius: "10px", background: "rgba(0,184,219,0.12)", color: "var(--ac2)", textTransform: "uppercase" }}>
+                              <span style={{ fontSize: "10px", fontWeight: 800, padding: "2px 8px", borderRadius: "10px", background: "rgba(147,51,234,0.15)", color: "var(--ac2)", textTransform: "uppercase" }}>
                                 DIGITAL PRODUCT
                               </span>
                               <h4 style={{ fontSize: "16px", fontWeight: "bold", color: "var(--tx)", marginTop: "4px" }}>{item.title}</h4>
@@ -336,9 +336,9 @@ export default function StudentDashboard() {
                               style={{
                                 padding: "10px 20px",
                                 borderRadius: "10px",
-                                background: "rgba(0,184,219,0.15)",
+                                background: "rgba(147,51,234,0.18)",
                                 color: "var(--ac2)",
-                                border: "1px solid rgba(0,184,219,0.3)",
+                                border: "1px solid rgba(168,85,247,0.35)",
                                 fontWeight: "bold",
                                 fontSize: "13px",
                                 cursor: "pointer",

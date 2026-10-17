@@ -55,8 +55,8 @@ export function ServicesSection() {
       }}
     >
       {/* Ambient Backdrop Orbs */}
-      <div style={{ position: "absolute", top: "10%", right: "8%", width: "300px", height: "300px", background: "radial-gradient(circle, rgba(0,184,219,0.07) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(40px)" }} />
-      <div style={{ position: "absolute", bottom: "10%", left: "8%", width: "320px", height: "320px", background: "radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(40px)" }} />
+      <div style={{ position: "absolute", top: "10%", right: "8%", width: "320px", height: "320px", background: "radial-gradient(circle, rgba(168,85,247,0.14) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(50px)" }} />
+      <div style={{ position: "absolute", bottom: "10%", left: "8%", width: "340px", height: "340px", background: "radial-gradient(circle, rgba(147,51,234,0.14) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(50px)" }} />
 
       <div className="container" style={{ position: "relative", zIndex: 2 }}>
         <div className="sh" style={{ textAlign: "center", marginBottom: "44px" }}>

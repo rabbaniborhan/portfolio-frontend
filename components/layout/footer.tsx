@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import api from "@/lib/api";
+import { FaYoutube, FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 const quickLinks = [
   { name: "Home", href: "/" },
@@ -31,6 +32,7 @@ export function Footer() {
       github: "https://github.com/rabbaniborhan",
       linkedin: "https://linkedin.com/in/rabbaniborhan",
       twitter: "https://twitter.com/rabbaniborhan",
+      youtube: "https://www.youtube.com/@NextWithBorhan",
       email: "brborhan70@gmail.com",
     },
   });
@@ -49,10 +51,13 @@ export function Footer() {
     fetchAbout();
   }, []);
 
+  const youtubeUrl = about.social?.youtube || "https://www.youtube.com/@NextWithBorhan";
+
   const socials = [
-    ...(about.social?.github ? [{ label: "GitHub", href: about.social.github, icon: "💻" }] : []),
-    ...(about.social?.linkedin ? [{ label: "LinkedIn", href: about.social.linkedin, icon: "🔗" }] : []),
-    ...(about.social?.twitter ? [{ label: "Twitter / X", href: about.social.twitter, icon: "𝕏" }] : []),
+    ...(youtubeUrl ? [{ label: "YouTube", href: youtubeUrl, icon: <FaYoutube className="text-[#ff0000] text-base" /> }] : []),
+    ...(about.social?.github ? [{ label: "GitHub", href: about.social.github, icon: <FaGithub className="text-base text-current" /> }] : []),
+    ...(about.social?.linkedin ? [{ label: "LinkedIn", href: about.social.linkedin, icon: <FaLinkedin className="text-[#0a66c2] text-base" /> }] : []),
+    ...(about.social?.twitter ? [{ label: "Twitter / X", href: about.social.twitter, icon: <FaXTwitter className="text-base text-current" /> }] : []),
   ];
 
   const firstName = about.name?.split(" ")[0] || "Borhan";
@@ -60,20 +65,28 @@ export function Footer() {
   return (
     <footer style={{ background: "var(--bg2)", borderTop: "1px solid var(--bd)", position: "relative", zIndex: 10, overflow: "hidden" }}>
       {/* Top Gradient Highlight Line */}
-      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: "linear-gradient(90deg, transparent, var(--ac), #6366f1, transparent)" }} />
+      <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: "linear-gradient(90deg, transparent, var(--ac), var(--pk), transparent)" }} />
 
       {/* Ambient Glow Backdrop */}
-      <div style={{ position: "absolute", top: "-50px", left: "50%", transform: "translateX(-50%)", width: "600px", height: "150px", background: "radial-gradient(ellipse at center, rgba(0, 184, 219, 0.08), transparent 70%)", pointerEvents: "none", filter: "blur(40px)" }} />
+      <div style={{ position: "absolute", top: "-50px", left: "50%", transform: "translateX(-50%)", width: "600px", height: "150px", background: "radial-gradient(ellipse at center, rgba(168, 85, 247, 0.16), transparent 70%)", pointerEvents: "none", filter: "blur(40px)" }} />
 
       <div className="container" style={{ padding: "64px 20px 32px", position: "relative", zIndex: 2 }}>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "48px", marginBottom: "52px" }} className="ftg">
           
           {/* Brand & Bio Column */}
           <div style={{ maxWidth: "340px" }}>
-            <Link href="/" style={{ textDecoration: "none" }}>
-              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontWeight: 800, fontSize: "22px", color: "var(--tx)", marginBottom: "14px" }}>
-                {firstName}<span style={{ color: "var(--ac)" }}>.dev</span>
+            <Link href="/" className="logo" style={{ textDecoration: "none", marginBottom: "16px", display: "inline-flex" }}>
+              <div className="logo-avatar-wrap">
+                <img
+                  src="/favicon.jpg"
+                  alt="Borhan"
+                  className="logo-avatar-img"
+                  width={34}
+                  height={34}
+                />
               </div>
+              <span className="logo-text" style={{ fontSize: "20px" }}>{firstName}</span>
+              <span className="logo-badge" style={{ fontSize: "16px" }}>.dev</span>
             </Link>
 
             <p style={{ fontSize: "13.5px", color: "var(--tx3)", lineHeight: 1.8, marginBottom: "20px" }}>
@@ -189,7 +202,7 @@ export function Footer() {
                 href={`mailto:${about.social?.email || "brborhan70@gmail.com"}`}
                 style={{ display: "flex", alignItems: "center", gap: "12px", fontSize: "13.5px", color: "var(--tx2)", textDecoration: "none" }}
               >
-                <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(0, 184, 219, 0.12)", color: "var(--ac2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px", flexShrink: 0 }}>
+                <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(147, 51, 234, 0.16)", color: "var(--ac2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "15px", flexShrink: 0 }}>
                   📧
                 </div>
                 <span>{about.social?.email || "brborhan70@gmail.com"}</span>

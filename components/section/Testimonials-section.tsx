@@ -88,14 +88,14 @@ export function TestimonialsSection() {
       id="testimonials"
       className="sp"
       style={{
-        background: "radial-gradient(ellipse 80% 50% at 50% 100%, rgba(0, 184, 219, 0.08), transparent 80%), linear-gradient(180deg, var(--bg) 0%, var(--bg2) 50%, var(--bg) 100%)",
+        background: "radial-gradient(ellipse 80% 50% at 50% 100%, rgba(168, 85, 247, 0.12), transparent 80%), linear-gradient(180deg, var(--bg) 0%, var(--bg2) 50%, var(--bg) 100%)",
         position: "relative",
         overflow: "hidden"
       }}
     >
       {/* Ambient Backdrop Orbs */}
-      <div style={{ position: "absolute", top: "20%", left: "10%", width: "300px", height: "300px", background: "radial-gradient(circle, rgba(0,184,219,0.07) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(40px)" }} />
-      <div style={{ position: "absolute", bottom: "20%", right: "10%", width: "300px", height: "300px", background: "radial-gradient(circle, rgba(99,102,241,0.07) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(40px)" }} />
+      <div style={{ position: "absolute", top: "20%", left: "10%", width: "320px", height: "320px", background: "radial-gradient(circle, rgba(147,51,234,0.14) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(50px)" }} />
+      <div style={{ position: "absolute", bottom: "20%", right: "10%", width: "320px", height: "320px", background: "radial-gradient(circle, rgba(168,85,247,0.14) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(50px)" }} />
 
       <div className="container" style={{ position: "relative", zIndex: 2 }}>
         <div className="sh">

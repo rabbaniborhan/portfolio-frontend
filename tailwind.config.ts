@@ -16,10 +16,10 @@ const config: Config = {
     },
     extend: {
       colors: {
-        /* Brand */
-        accent:  { DEFAULT: "#00b8db", dark: "#006a7e", light: "#33cceb" },
-        /* Surfaces */
-        surface: { DEFAULT: "#0c1322", card: "#121a2d", elevated: "#1a2340" },
+        /* Brand - Electric Purple & Violet */
+        accent:  { DEFAULT: "#8b5cf6", dark: "#6d28d9", light: "#c084fc" },
+        /* Surfaces - Deep violet-tinted dark aesthetic */
+        surface: { DEFAULT: "#090714", card: "#0f0b1f", elevated: "#181230" },
         /* Text */
         text:    { DEFAULT: "#e2e8f0", muted: "#94a3b8", faint: "#4a5a7a" },
         /* Semantic */

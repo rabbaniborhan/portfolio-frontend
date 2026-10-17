@@ -83,7 +83,7 @@ export default function BlogPostDetailsPage() {
   if (loading) {
     return (
       <div style={{ paddingTop: "140px", textAlign: "center", minHeight: "80vh" }}>
-        <div style={{ display: "inline-block", width: "40px", height: "40px", border: "3px solid rgba(0,184,219,0.2)", borderTopColor: "var(--ac)", borderRadius: "50%", animation: "spin 1s linear infinite" }} />
+        <div style={{ display: "inline-block", width: "40px", height: "40px", border: "3px solid rgba(168,85,247,0.25)", borderTopColor: "var(--ac)", borderRadius: "50%", animation: "spin 1s linear infinite" }} />
         <p style={{ marginTop: "16px", color: "var(--tx2)", fontSize: "15px" }}>Loading article content...</p>
       </div>
     );
@@ -106,10 +106,10 @@ export default function BlogPostDetailsPage() {
             gap: "8px",
             marginBottom: "32px",
             textDecoration: "none",
-            background: "rgba(0,184,219,0.08)",
+            background: "rgba(147,51,234,0.12)",
             padding: "8px 16px",
             borderRadius: "100px",
-            border: "1px solid rgba(0,184,219,0.2)",
+            border: "1px solid rgba(168,85,247,0.25)",
             transition: "all 0.2s ease",
           }}
         >
@@ -128,8 +128,8 @@ export default function BlogPostDetailsPage() {
                   textTransform: "uppercase",
                   letterSpacing: "0.05em",
                   color: "var(--ac)",
-                  background: "rgba(0,184,219,0.1)",
-                  border: "1px solid rgba(0,184,219,0.25)",
+                  background: "rgba(147,51,234,0.15)",
+                  border: "1px solid rgba(168,85,247,0.3)",
                   padding: "4px 12px",
                   borderRadius: "100px",
                 }}
@@ -418,12 +418,13 @@ export default function BlogPostDetailsPage() {
                 style={{
                   padding: "10px 24px",
                   borderRadius: "10px",
-                  background: "linear-gradient(135deg, var(--ac), #0096b8)",
+                  background: "linear-gradient(135deg, var(--ac), #9333ea)",
                   color: "#ffffff",
                   fontWeight: "bold",
                   fontSize: "13px",
                   border: "none",
-                  cursor: "pointer"
+                  cursor: "pointer",
+                  boxShadow: "0 4px 14px rgba(168,85,247,0.35)"
                 }}
               >
                 {submittingComment ? "Posting..." : "💬 Post Comment"}
@@ -451,7 +452,7 @@ export default function BlogPostDetailsPage() {
                     >
                       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "8px" }}>
                         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                          <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "rgba(0,184,219,0.15)", color: "var(--ac2)", fontWeight: "bold", fontSize: "14px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "rgba(147,51,234,0.18)", color: "var(--ac2)", fontWeight: "bold", fontSize: "14px", display: "flex", alignItems: "center", justifyContent: "center" }}>
                             {initial}
                           </div>
                           <span style={{ fontSize: "14px", fontWeight: "bold", color: "var(--tx)" }}>

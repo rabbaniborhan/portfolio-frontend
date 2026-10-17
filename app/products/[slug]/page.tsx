@@ -778,13 +778,13 @@ export default function ProductDetailsPage() {
                 style={{
                   padding: "10px 24px",
                   borderRadius: "10px",
-                  background: "linear-gradient(135deg, var(--ac), #6366f1)",
+                  background: "linear-gradient(135deg, var(--ac), #9333ea)",
                   color: "#ffffff",
                   fontWeight: "bold",
                   fontSize: "13px",
                   border: "none",
                   cursor: "pointer",
-                  boxShadow: "0 4px 16px rgba(0,184,219,0.3)"
+                  boxShadow: "0 4px 16px rgba(168,85,247,0.35)"
                 }}
               >
                 🚀 Buy Full Book Now (${currentPrice})

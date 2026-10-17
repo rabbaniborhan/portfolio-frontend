@@ -156,14 +156,14 @@ export function HeroSection() {
     <section
       id="hero"
       style={{
-        background: "radial-gradient(ellipse 80% 60% at 50% -20%, rgba(0, 184, 219, 0.12), transparent 80%), linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%)",
+        background: "radial-gradient(ellipse 80% 60% at 50% -20%, rgba(168, 85, 247, 0.18), transparent 80%), linear-gradient(180deg, var(--bg) 0%, var(--bg2) 100%)",
         position: "relative",
         overflow: "hidden"
       }}
     >
       {/* Ambient Backdrop Orbs */}
-      <div style={{ position: "absolute", top: "10%", left: "15%", width: "350px", height: "350px", background: "radial-gradient(circle, rgba(0,184,219,0.09) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(50px)" }} />
-      <div style={{ position: "absolute", top: "40%", right: "10%", width: "400px", height: "400px", background: "radial-gradient(circle, rgba(99,102,241,0.09) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(50px)" }} />
+      <div style={{ position: "absolute", top: "10%", left: "15%", width: "380px", height: "380px", background: "radial-gradient(circle, rgba(147,51,234,0.18) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(60px)" }} />
+      <div style={{ position: "absolute", top: "40%", right: "10%", width: "450px", height: "450px", background: "radial-gradient(circle, rgba(168,85,247,0.16) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(60px)" }} />
 
       {/* Floating particles */}
       <div className="hero-particles" aria-hidden="true">
@@ -184,9 +184,26 @@ export function HeroSection() {
         <div className="hg">
           {/* Left column */}
           <div>
-            <div className="hey rv">
-              <div className="dg" />
-              Available for new projects
+            {/* Neon Glow Aura Avatar & Creative Status */}
+            <div className="flex items-center gap-4 mb-6 rv">
+              <div className="neon-aura-container">
+                <div className="neon-aura-glow-back" />
+                <div className="neon-ring-frame">
+                  <img
+                    src="/creator-avatar.jpg"
+                    alt={about.name || "Borhan Rabbani"}
+                    width={72}
+                    height={72}
+                    className="neon-avatar-img w-[68px] h-[68px] sm:w-[76px] sm:h-[76px]"
+                  />
+                </div>
+              </div>
+              <div className="flex flex-col gap-1.5">
+                <div className="crystal-badge">
+                  <div className="dg" />
+                  <span>Available for new projects</span>
+                </div>
+              </div>
             </div>
 
             <p style={{ fontSize: "17px", color: "var(--tx2)", marginBottom: "6px" }} className="rv">

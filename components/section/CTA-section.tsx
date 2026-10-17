@@ -23,12 +23,12 @@ export function CTASection() {
         <div
           className="rv"
           style={{
-            background: "linear-gradient(135deg, var(--bg2), rgba(0, 184, 219, 0.05))",
+            background: "linear-gradient(135deg, var(--bg2), rgba(168, 85, 247, 0.08))",
             border: "1px solid var(--bd)",
             borderRadius: "20px",
             padding: "36px 32px",
             textAlign: "center",
-            boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+            boxShadow: "0 10px 30px rgba(0,0,0,0.3)",
             position: "relative",
             overflow: "hidden"
           }}
@@ -53,12 +53,12 @@ export function CTASection() {
               style={{
                 padding: "10px 24px",
                 borderRadius: "10px",
-                background: "linear-gradient(135deg, var(--ac), #6366f1)",
+                background: "linear-gradient(135deg, #604ffb 0%, #ee05e3 100%)",
                 color: "#ffffff",
                 fontWeight: "bold",
                 fontSize: "13px",
                 textDecoration: "none",
-                boxShadow: "0 4px 14px rgba(0,184,219,0.3)",
+                boxShadow: "0 4px 18px rgba(238, 5, 227, 0.45)",
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "6px",

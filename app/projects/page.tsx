@@ -73,18 +73,13 @@ export default function ProjectsPage() {
           {/* Filter bar */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", justifyContent: "center", marginBottom: "48px" }}>
             {techFilters.map((t) => (
-              <span
+              <button
                 key={t}
                 onClick={() => setSelectedFilter(t)}
-                style={{
-                  padding: "6px 16px", borderRadius: "20px", border: "1px solid var(--bd2)",
-                  background: t === selectedFilter ? "var(--ac)" : "var(--sf)",
-                  color: t === selectedFilter ? "#fff" : "var(--tx2)",
-                  fontSize: "12px", cursor: "pointer", fontFamily: "'JetBrains Mono', monospace", transition: "all .2s"
-                }}
+                className={`filter-tab${t === selectedFilter ? " active" : ""}`}
               >
                 {t}
-              </span>
+              </button>
             ))}
           </div>
 

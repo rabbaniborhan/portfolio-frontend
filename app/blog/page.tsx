@@ -66,18 +66,13 @@ export default function BlogPage() {
           {/* Categories */}
           <div style={{ display: "flex", flexWrap: "wrap", gap: "8px", justifyContent: "center", marginBottom: "48px" }}>
             {categories.map((c) => (
-              <span
+              <button
                 key={c}
                 onClick={() => setSelectedCat(c)}
-                style={{
-                  padding: "6px 18px", borderRadius: "20px", border: "1px solid var(--bd2)",
-                  background: c === selectedCat ? "var(--ac)" : "var(--sf)",
-                  color: c === selectedCat ? "#fff" : "var(--tx2)",
-                  fontSize: "12px", cursor: "pointer", fontFamily: "'JetBrains Mono', monospace"
-                }}
+                className={`filter-tab${c === selectedCat ? " active" : ""}`}
               >
                 {c}
-              </span>
+              </button>
             ))}
           </div>
 

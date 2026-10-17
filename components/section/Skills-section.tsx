@@ -50,14 +50,14 @@ export function SkillsSection() {
       id="skills"
       className="sp"
       style={{
-        background: "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 184, 219, 0.09), transparent 80%), linear-gradient(180deg, var(--bg) 0%, var(--bg2) 50%, var(--bg) 100%)",
+        background: "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(168, 85, 247, 0.15), transparent 80%), linear-gradient(180deg, var(--bg) 0%, var(--bg2) 50%, var(--bg) 100%)",
         position: "relative",
         overflow: "hidden"
       }}
     >
       {/* Modern Ambient Backdrop Orbs */}
-      <div style={{ position: "absolute", top: "15%", left: "5%", width: "300px", height: "300px", background: "radial-gradient(circle, rgba(0,184,219,0.08) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(40px)" }} />
-      <div style={{ position: "absolute", bottom: "15%", right: "5%", width: "350px", height: "350px", background: "radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(40px)" }} />
+      <div style={{ position: "absolute", top: "15%", left: "5%", width: "320px", height: "320px", background: "radial-gradient(circle, rgba(147,51,234,0.14) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(50px)" }} />
+      <div style={{ position: "absolute", bottom: "15%", right: "5%", width: "380px", height: "380px", background: "radial-gradient(circle, rgba(168,85,247,0.14) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(50px)" }} />
 
       <div className="container" style={{ position: "relative", zIndex: 2 }}>
         {/* Section Header */}
@@ -77,19 +77,7 @@ export function SkillsSection() {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              style={{
-                padding: "8px 22px",
-                borderRadius: "30px",
-                border: "1px solid " + (cat === selectedCategory ? "var(--ac2)" : "var(--bd)"),
-                background: cat === selectedCategory ? "linear-gradient(135deg, var(--ac), #6366f1)" : "var(--bg2)",
-                color: cat === selectedCategory ? "#ffffff" : "var(--tx2)",
-                fontSize: "12px",
-                fontWeight: "bold",
-                cursor: "pointer",
-                fontFamily: "'JetBrains Mono', monospace",
-                transition: "all 0.25s ease",
-                boxShadow: cat === selectedCategory ? "0 4px 16px rgba(0,184,219,0.3)" : "none"
-              }}
+              className={`filter-tab${cat === selectedCategory ? " active" : ""}`}
             >
               {cat}
             </button>
@@ -123,7 +111,7 @@ export function SkillsSection() {
                     position: "relative",
                     overflow: "hidden",
                     transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-                    boxShadow: "0 10px 30px rgba(0,0,0,0.15)",
+                    boxShadow: "0 10px 30px rgba(0,0,0,0.25)",
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between"
@@ -133,7 +121,7 @@ export function SkillsSection() {
                   <div>
                     {/* Top Row: Icon + Level Badge */}
                     <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "12px" }}>
-                      <div style={{ width: "42px", height: "42px", borderRadius: "12px", background: "rgba(0,184,219,0.08)", border: "1px solid rgba(0,184,219,0.2)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+                      <div style={{ width: "42px", height: "42px", borderRadius: "12px", background: "rgba(147,51,234,0.12)", border: "1px solid rgba(168,85,247,0.25)", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
                         {iconData.isUrl ? (
                           <img src={iconData.src} alt={s.name} style={{ width: "24px", height: "24px", objectFit: "contain" }} />
                         ) : (
@@ -141,7 +129,7 @@ export function SkillsSection() {
                         )}
                       </div>
 
-                      <span style={{ fontSize: "10px", fontWeight: 800, padding: "4px 10px", borderRadius: "12px", background: "rgba(0,184,219,0.12)", color: "var(--ac2)", border: "1px solid rgba(0,184,219,0.25)", textTransform: "uppercase", letterSpacing: ".05em" }}>
+                      <span style={{ fontSize: "10px", fontWeight: 800, padding: "4px 10px", borderRadius: "12px", background: "rgba(147,51,234,0.16)", color: "var(--ac2)", border: "1px solid rgba(168,85,247,0.3)", textTransform: "uppercase", letterSpacing: ".05em" }}>
                         {lvlText}
                       </span>
                     </div>
@@ -166,9 +154,9 @@ export function SkillsSection() {
                         style={{
                           width: `${pct}%`,
                           height: "100%",
-                          background: "linear-gradient(90deg, var(--ac), #6366f1)",
+                          background: "linear-gradient(90deg, var(--ac), var(--ac2))",
                           borderRadius: "10px",
-                          boxShadow: "0 0 12px rgba(0,184,219,0.5)",
+                          boxShadow: "0 0 12px rgba(168,85,247,0.5)",
                           transition: "width 1s ease-in-out"
                         }}
                       />
@@ -184,8 +172,8 @@ export function SkillsSection() {
       <style>{`
         .sk-card-hover:hover {
           transform: translateY(-5px);
-          border-color: rgba(0, 184, 219, 0.4) !important;
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 184, 219, 0.15) !important;
+          border-color: rgba(168, 85, 247, 0.5) !important;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 24px rgba(139, 92, 246, 0.25) !important;
         }
       `}</style>
     </section>

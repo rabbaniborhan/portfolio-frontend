@@ -76,7 +76,7 @@ export function PricingSection() {
   };
 
   return (
-    <section id="pricing" className="sp" style={{ background: "linear-gradient(180deg,transparent,rgba(0,184,219,.025),transparent)" }}>
+    <section id="pricing" className="sp" style={{ background: "linear-gradient(180deg,transparent,rgba(147,51,234,.04),transparent)" }}>
 
       <div className="container">
         <div className="sh">

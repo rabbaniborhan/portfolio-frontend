@@ -56,7 +56,7 @@ export default function AboutSection() {
             <div style={{
               background: "var(--bg2)", border: "1px solid var(--bd)", borderRadius: "var(--rl)",
               padding: "28px", fontFamily: "'JetBrains Mono', monospace", fontSize: "12.5px",
-              lineHeight: 2, boxShadow: "0 8px 48px rgba(0,0,0,.4), 0 0 0 1px rgba(0,184,219,.06)",
+              lineHeight: 2, boxShadow: "0 8px 48px rgba(0,0,0,.4), 0 0 0 1px rgba(168,85,247,.15)",
               position: "relative", overflow: "hidden"
             }}>
 

@@ -40,7 +40,7 @@ export default function CheckoutForm({ productSlug, productTitle, price }: { pro
             <option value="card">Card (VISA/Mastercard)</option>
           </select>
 
-          <button disabled={processing} type="submit" style={{ background: "linear-gradient(135deg,var(--ac),#0096b8)", color: "#fff", padding: "12px 16px", borderRadius: 10, fontWeight: 800, border: "none" }}>
+          <button disabled={processing} type="submit" style={{ background: "linear-gradient(135deg,var(--ac),#9333ea)", color: "#fff", padding: "12px 16px", borderRadius: 10, fontWeight: 800, border: "none", cursor: "pointer", boxShadow: "0 4px 16px rgba(168,85,247,0.35)" }}>
             {processing ? "Processing…" : `Pay ${price}`}
           </button>
           <div style={{ fontSize: 12, color: "var(--tx3)" }}>By clicking Pay you agree to our terms. Payment processed securely.</div>

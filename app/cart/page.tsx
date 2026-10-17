@@ -30,7 +30,7 @@ export default function CartPage() {
         paddingTop: "100px",
         paddingBottom: "80px",
         minHeight: "90vh",
-        background: "radial-gradient(ellipse 80% 50% at 50% 10%, rgba(0, 184, 219, 0.08), transparent 80%), var(--bg)"
+        background: "radial-gradient(ellipse 80% 50% at 50% 10%, rgba(168, 85, 247, 0.12), transparent 80%), var(--bg)"
       }}
     >
       <div className="container" style={{ maxWidth: "1060px" }}>
@@ -84,12 +84,12 @@ export default function CartPage() {
                 style={{
                   padding: "12px 28px",
                   borderRadius: "12px",
-                  background: "linear-gradient(135deg, var(--ac), #0096b8)",
+                  background: "linear-gradient(135deg, var(--ac), #9333ea)",
                   color: "#ffffff",
                   fontWeight: "bold",
                   fontSize: "14px",
                   textDecoration: "none",
-                  boxShadow: "0 4px 16px rgba(0,184,219,0.3)"
+                  boxShadow: "0 4px 16px rgba(168,85,247,0.35)"
                 }}
               >
                 Browse Digital Products
@@ -159,7 +159,7 @@ export default function CartPage() {
                       </div>
 
                       <div>
-                        <span style={{ fontSize: "10px", fontWeight: 800, padding: "3px 10px", borderRadius: "10px", background: "rgba(0,184,219,0.12)", color: "var(--ac2)", textTransform: "uppercase", letterSpacing: ".05em" }}>
+                        <span style={{ fontSize: "10px", fontWeight: 800, padding: "3px 10px", borderRadius: "10px", background: "rgba(147,51,234,0.15)", color: "var(--ac2)", textTransform: "uppercase", letterSpacing: ".05em" }}>
                           {item.itemType || "ITEM"}
                         </span>
                         <h4 style={{ fontSize: "16px", fontWeight: "bold", color: "var(--tx)", marginTop: "4px", marginBottom: "4px" }}>
@@ -267,14 +267,14 @@ export default function CartPage() {
                     width: "100%",
                     padding: "14px",
                     borderRadius: "12px",
-                    background: "linear-gradient(135deg, var(--ac), #6366f1)",
+                    background: "linear-gradient(135deg, var(--ac), #9333ea)",
                     color: "#ffffff",
                     fontWeight: "bold",
                     fontSize: "15px",
                     textAlign: "center",
                     display: "block",
                     textDecoration: "none",
-                    boxShadow: "0 6px 20px rgba(0,184,219,0.3)"
+                    boxShadow: "0 6px 20px rgba(168,85,247,0.35)"
                   }}
                 >
                   🚀 Proceed to Checkout
@@ -286,14 +286,14 @@ export default function CartPage() {
                     width: "100%",
                     padding: "14px",
                     borderRadius: "12px",
-                    background: "linear-gradient(135deg, var(--ac), #6366f1)",
+                    background: "linear-gradient(135deg, var(--ac), #9333ea)",
                     color: "#ffffff",
                     fontWeight: "bold",
                     fontSize: "15px",
                     textAlign: "center",
                     display: "block",
                     textDecoration: "none",
-                    boxShadow: "0 6px 20px rgba(0,184,219,0.3)"
+                    boxShadow: "0 6px 20px rgba(168,85,247,0.35)"
                   }}
                 >
                   🔒 Sign In to Checkout

@@ -73,7 +73,19 @@ export function Navbar() {
   return (
     <>
       <nav className={`nav-bar${scrolled ? " scrolled" : ""}`}>
-        <Link href="/" className="logo" style={{ zIndex: 10 }}>Borhan<span>.dev</span></Link>
+        <Link href="/" className="logo" style={{ zIndex: 10 }}>
+          <div className="logo-avatar-wrap">
+            <img
+              src="/favicon.jpg"
+              alt="Borhan"
+              className="logo-avatar-img"
+              width={32}
+              height={32}
+            />
+          </div>
+          <span className="logo-text">Borhan</span>
+          <span className="logo-badge">.dev</span>
+        </Link>
 
         {/* Desktop nav */}
         <div className="nl">
@@ -110,13 +122,13 @@ export function Navbar() {
                 gap: "8px",
                 padding: "7px 16px",
                 borderRadius: "10px",
-                background: "linear-gradient(135deg, rgba(0,184,219,0.15), rgba(99,102,241,0.15))",
-                border: "1px solid rgba(0,184,219,0.35)",
+                background: "linear-gradient(135deg, rgba(147,51,234,0.18), rgba(168,85,247,0.18))",
+                border: "1px solid rgba(168,85,247,0.45)",
                 color: "var(--ac2)",
                 fontWeight: "bold",
                 fontSize: "13px",
                 textDecoration: "none",
-                boxShadow: "0 4px 12px rgba(0,184,219,0.15)"
+                boxShadow: "0 4px 12px rgba(168,85,247,0.25)"
               }}
             >
               <span>📚</span> My Learning Library

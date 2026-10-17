@@ -78,7 +78,7 @@ export default function ProjectDetailPage() {
         <article>
           {/* Top Metadata Badges */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px", flexWrap: "wrap" }}>
-            <span style={{ fontSize: "11px", fontWeight: 800, textTransform: "uppercase", padding: "4px 12px", borderRadius: "20px", background: "rgba(0,184,219,0.12)", color: "var(--ac2)", border: "1px solid rgba(0,184,219,0.3)", letterSpacing: ".06em" }}>
+            <span style={{ fontSize: "11px", fontWeight: 800, textTransform: "uppercase", padding: "4px 12px", borderRadius: "20px", background: "rgba(147,51,234,0.18)", color: "var(--ac2)", border: "1px solid rgba(168,85,247,0.35)", letterSpacing: ".06em" }}>
               🏷️ {project.category || "Web App"}
             </span>
 
@@ -137,12 +137,12 @@ export default function ProjectDetailPage() {
                       textAlign: "center",
                       padding: "12px 20px",
                       borderRadius: "10px",
-                      background: "linear-gradient(135deg, var(--ac), #0096b8)",
+                      background: "linear-gradient(135deg, var(--ac), #9333ea)",
                       color: "#ffffff",
                       fontWeight: "bold",
                       fontSize: "13px",
                       textDecoration: "none",
-                      boxShadow: "0 4px 14px rgba(0,184,219,0.3)",
+                      boxShadow: "0 4px 14px rgba(168,85,247,0.35)",
                       display: "inline-flex",
                       alignItems: "center",
                       justifyContent: "center",
@@ -183,7 +183,7 @@ export default function ProjectDetailPage() {
 
           {/* Role & Contribution Card */}
           {project.contribution && (
-            <div style={{ background: "rgba(0,184,219,0.06)", border: "1px solid rgba(0,184,219,0.25)", borderRadius: "16px", padding: "28px", marginBottom: "24px" }}>
+            <div style={{ background: "rgba(147,51,234,0.1)", border: "1px solid rgba(168,85,247,0.3)", borderRadius: "16px", padding: "28px", marginBottom: "24px" }}>
               <h3 style={{ fontSize: "16px", fontWeight: "bold", color: "var(--ac2)", marginBottom: "10px", display: "flex", alignItems: "center", gap: "8px" }}>
                 <span>👤</span> My Role & Technical Contribution
               </h3>

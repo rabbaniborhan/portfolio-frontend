@@ -52,8 +52,8 @@ export default function RegisterPage() {
       }}
     >
       {/* Background Ambient Glow Orbs */}
-      <div style={{ position: "absolute", top: "15%", right: "15%", width: "320px", height: "320px", background: "radial-gradient(circle, rgba(0,184,219,0.08) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(40px)" }} />
-      <div style={{ position: "absolute", bottom: "15%", left: "15%", width: "350px", height: "350px", background: "radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(40px)" }} />
+      <div style={{ position: "absolute", top: "15%", right: "15%", width: "320px", height: "320px", background: "radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(50px)" }} />
+      <div style={{ position: "absolute", bottom: "15%", left: "15%", width: "350px", height: "350px", background: "radial-gradient(circle, rgba(147,51,234,0.15) 0%, transparent 70%)", pointerEvents: "none", filter: "blur(50px)" }} />
 
       <div className="container" style={{ maxWidth: "540px", position: "relative", zIndex: 2 }}>
         <div
