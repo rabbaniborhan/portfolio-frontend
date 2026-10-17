@@ -348,9 +348,71 @@ html[data-theme="light"] .logo-text {
   font-family: 'JetBrains Mono', monospace;
   font-size: 15px;
 }
-.nl a { color:var(--tx2); font-size:13px; padding:7px 13px; border-radius:8px; transition:all .2s; font-weight:500; }
-.nl a:hover, .nl a.active { color:var(--tx); background:var(--sf2); }
-.nl a.active { color:var(--ac); }
+.nl {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nl a {
+  position: relative;
+  color: var(--tx2);
+  font-size: 13.5px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-block;
+}
+
+/* Subtle hover animation: slight lift, color glow, and soft glass background */
+.nl a:hover {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, rgba(96, 79, 251, 0.14), rgba(238, 5, 227, 0.14));
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(96, 79, 251, 0.15);
+}
+
+/* Light mode hover state */
+html[data-theme="light"] .nl a:hover {
+  color: #604ffb !important;
+  background: rgba(96, 79, 251, 0.08);
+}
+
+/* Bottom sliding glow indicator */
+.nl a::after {
+  content: '';
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #604ffb, #ee05e3);
+  border-radius: 2px;
+  transform: translateX(-50%);
+  transition: width 0.25s ease;
+  box-shadow: 0 0 8px rgba(238, 5, 227, 0.8);
+}
+
+.nl a:hover::after {
+  width: 60%;
+}
+
+.nl a.active {
+  color: #ffffff !important;
+  font-weight: 600;
+  background: linear-gradient(135deg, rgba(96, 79, 251, 0.18), rgba(238, 5, 227, 0.18));
+}
+
+html[data-theme="light"] .nl a.active {
+  color: #604ffb !important;
+  background: rgba(96, 79, 251, 0.12);
+}
+
+.nl a.active::after {
+  width: 70%;
+}
 
 .nh {
   background:linear-gradient(135deg, #604ffb 0%, #ee05e3 100%) !important;
